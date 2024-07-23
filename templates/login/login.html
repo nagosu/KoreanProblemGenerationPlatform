@@ -3,7 +3,66 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../static/css/reset.css" />
+    <link rel="stylesheet" href="../../static/css/common.css" />
+    <link rel="stylesheet" href="../../static/css/login/login.css" />
     <title>Document</title>
   </head>
-  <body></body>
+  <body>
+    <div class="container">
+      <!-- 로그인 폼 -->
+      <div class="login-container">
+        <div class="login-header">
+          <h1>LOGIN</h1>
+        </div>
+        <div class="login-form">
+          <div class="login-form-title">
+            <h2>로그인</h2>
+          </div>
+          <div class="login-input-container">
+            <div class="id-container">
+              <input
+                type="text"
+                class="id-input"
+                placeholder="아이디"
+                id="login-id"
+              />
+            </div>
+            <div class="password-container">
+              <input
+                type="password"
+                class="password-input"
+                placeholder="비밀번호"
+                id="login-password"
+              />
+              <img
+                src="../../static/images/icon/svg/View_hide_fill.svg"
+                alt="비밀번호 보기"
+                class="password-view"
+                draggable="false"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="login-footer">
+          <button type="button" class="login-button">login</button>
+        </div>
+      </div>
+      <!-- //로그인 폼 -->
+    </div>
+
+    <!-- 모달 -->
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-message-container">
+          <span class="modal-message"></span>
+        </div>
+        <button type="button" class="close-button">확인</button>
+      </div>
+    </div>
+    <!-- //모달 -->
+
+    <!-- script -->
+    <script src="../../static/js/login/login.js"></script>
+  </body>
 </html>
