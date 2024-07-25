@@ -14,11 +14,11 @@ passwordView.addEventListener("click", () => {
   if (passwordInput.type === "password") {
     passwordInput.type = "text";
     passwordView.src = "../../static/images/icon/svg/View_fill.svg";
-    passwordView.setAttribute("dragable", "false");
+    passwordView.setAttribute("draggable", "false");
   } else {
     passwordInput.type = "password";
     passwordView.src = "../../static/images/icon/svg/View_hide_fill.svg";
-    passwordView.setAttribute("dragable", "false");
+    passwordView.setAttribute("draggable", "false");
   }
 });
 
@@ -41,7 +41,7 @@ loginButton.addEventListener("click", () => {
     showModal("비밀번호 정보가 일치하지 않습니다.");
   } else {
     // 로그인 성공 시 페이지 이동
-    window.location.href = "../tab01/generate/tab01-generatePassage.html";
+    window.location.href = "../tab01/generate/tab01-generateProblem.html";
   }
 });
 
