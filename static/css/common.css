@@ -91,10 +91,11 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: space-between;
+  justify-content: center;
   width: 110px;
   height: 100%;
   padding: 6px 0;
+  gap: 3px;
 }
 
 .navbar .profile-container .profile {
@@ -459,7 +460,7 @@
 }
 
 .sidebar-menu-container .sidebar-menu-title.active {
-  background-color: var(--primary-highlight-color);
+  background-color: var(--primary-hover-color);
 }
 
 .sidebar-menu-container .sidebar-menu-title.active h3 {
@@ -493,12 +494,12 @@
 }
 
 .sidebar-menu-container .sidebar-menu-list .sidebar-menu-item.active {
-  background-color: var(--primary-highlight-color);
+  background-color: var(--primary-hover-color);
   font-weight: bold;
 }
 
 .sidebar-menu-container .sidebar-menu-list .sidebar-menu-item:hover {
-  background-color: var(--primary-hover-color);
+  background-color: var(--primary-highlight-color);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -524,146 +525,4 @@
 .main-content .main-content-header h2 {
   font-size: 1.8rem;
   font-weight: 600;
-}
-
-.main-content .underline-container {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  width: 100%;
-}
-
-.underline-container .underline-button-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.underline-container .underline-button-wrapper button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100px;
-  height: 30px;
-  color: #fff;
-  font-size: 1rem;
-  font-weight: 500;
-  border-radius: 4px;
-  background-color: var(--primary-color);
-  white-space: nowrap;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s;
-}
-
-.underline-container .underline-button-wrapper button:hover {
-  background-color: var(--primary-hover-color);
-}
-
-.main-content .problem-type-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  width: 100%;
-  gap: 20px;
-  height: fit-content;
-  background-color: #fff;
-  margin-top: 10px;
-  padding: 15px;
-  padding-bottom: 30px;
-}
-
-.problem-type-container h3 {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #111;
-}
-
-.dropdown {
-  position: relative;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 8px 30px;
-  cursor: pointer;
-  margin-left: 10px;
-}
-
-.dropdown .selected {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-right: 20px;
-  font-size: 1.1rem;
-  font-weight: 500;
-}
-
-.dropdown .triangle {
-  position: absolute;
-  right: 10px;
-  width: 30px;
-  margin-left: 10px;
-  transition: transform 0.5s;
-}
-
-.dropdown.active .triangle {
-  transform: rotate(180deg);
-}
-
-.dropdown-menu {
-  display: none;
-  position: absolute;
-  top: 105%;
-  left: 50%;
-  transform: translate(-50%, 0);
-  width: 100%;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  background: #fff;
-  z-index: 1;
-  overflow: hidden;
-}
-
-.dropdown-menu.active {
-  display: block;
-}
-
-.dropdown-menu div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.dropdown-menu div:hover {
-  background: #f0f0f0;
-}
-
-.main-content .passage-input-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  width: 100%;
-  gap: 20px;
-  height: fit-content;
-  background-color: #fff;
-  padding: 15px;
-}
-
-.passage-input-container h3 {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #111;
-}
-
-.passage-input-container textarea {
-  width: 100%;
-  min-height: 400px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  resize: none;
 }

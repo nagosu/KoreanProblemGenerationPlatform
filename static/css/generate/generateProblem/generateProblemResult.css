@@ -1,0 +1,203 @@
+.main-content .generated-problem-wrapper,
+.main-content .problem-explanation-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.main-content .generated-problem-wrapper .problem-container,
+.main-content .problem-explanation-wrapper .explanation-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 5px;
+}
+
+.main-content .generated-problem-wrapper .prompt-container,
+.main-content .problem-explanation-wrapper .prompt-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 5px;
+}
+
+.main-content .editable {
+  width: 100%;
+  height: fit-content;
+  max-height: 200px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  resize: none;
+  font-size: 0.9rem;
+  background-color: #fff;
+  word-break: break-all;
+  overflow-y: auto;
+}
+
+.main-content .editable:focus {
+  outline: none;
+}
+
+.main-content .edit-button-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+}
+
+.main-content .edit-button-container button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 26px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--primary-color);
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.main-content .edit-button-container button:hover {
+  background-color: var(--primary-hover-color);
+}
+
+.main-content .prompt-area {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  resize: none;
+  font-size: 0.9rem;
+  background-color: #fff;
+  word-break: break-all;
+  overflow-y: auto;
+}
+
+.main-content .recreate-button-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+}
+
+.main-content .recreate-button-container button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  padding: 0 25px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--primary-color);
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: background-color 0.3s;
+}
+
+.main-content .recreate-button-container button:hover {
+  background-color: var(--primary-hover-color);
+}
+
+.modal-warning-overlay {
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+}
+
+.modal-confirm-overlay.fade-out {
+  animation: fadeOut 0.3s forwards;
+}
+
+.modal-warning-overlay .modal-warning-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  background-color: #fefefe;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 300px;
+  height: 140px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  animation: slideIn 0.3s;
+}
+
+.modal-warning-overlay .modal-warning-content .modal-warning-message-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100px;
+  padding: 0 20px;
+}
+
+.modal-warning-message-container span {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.modal-warning-overlay .modal-warning-content button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+  background-color: #7749f8;
+  transition: background-color 0.3s;
+}
+
+.modal-warning-overlay .modal-warning-content button:hover {
+  background-color: #5e3cc9;
+}
+
+.toast-message-container {
+  position: fixed;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  top: 80px;
+  right: 20px;
+  padding: 8px 20px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+}
+
+.toast-message-container.fade-out {
+  animation: fadeOut 0.4s forwards;
+}
+
+.toast-message-container .toast-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #111;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
