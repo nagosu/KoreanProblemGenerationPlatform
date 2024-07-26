@@ -1,12 +1,14 @@
 const editButtons = document.querySelectorAll(".edit-button");
 const promptAreas = document.querySelectorAll(".prompt-area");
 const recreateButtons = document.querySelectorAll(".recreate-button");
+const copyButtons = document.querySelectorAll(".copy-button");
+
 const modalWarningOverlay = document.querySelector(".modal-warning-overlay");
 const modalWarningContent = document.querySelector(".modal-warning-content");
 const modalWarningCloseButton = document.querySelector(
   ".modal-warning-close-button"
 );
-const copyButtons = document.querySelectorAll(".copy-button");
+
 const toastMessageContainer = document.querySelector(
   ".toast-message-container"
 );
@@ -47,10 +49,25 @@ recreateButtons.forEach((button) => {
   });
 });
 
+// 경고 모달 닫기 버튼 클릭 시
+modalWarningCloseButton.addEventListener("click", () => {
+  closeModalWarningRecreate();
+});
+
 // 경고 모달 띄우기
-const openModalWarningRecreate = () => {
+function openModalWarningRecreate() {
+  modalWarningOverlay.classList.remove("fade-out"); // 기존에 fade-out 클래스가 있을 경우 제거
   modalWarningOverlay.style.display = "block";
-};
+}
+
+// 경고 모달 닫기
+function closeModalWarningRecreate() {
+  modalWarningOverlay.classList.add("fade-out"); // fade-out 클래스 추가
+  setTimeout(() => {
+    modalWarningOverlay.style.display = "none";
+    modalWarningOverlay.classList.remove("fade-out"); // fade-out 클래스 제거
+  }, 300);
+}
 
 // 복사 버튼 클릭 시 클립보드에 복사
 copyButtons.forEach((button) => {
@@ -71,7 +88,7 @@ const copyToClipboard = (text) => {
   document.body.removeChild(textarea);
 };
 
-const showToastMessage = () => {
+function showToastMessage() {
   toastMessageContainer.style.display = "flex";
   setTimeout(() => {
     toastMessageContainer.classList.add("fade-out");
@@ -80,7 +97,7 @@ const showToastMessage = () => {
     toastMessageContainer.style.display = "none";
     toastMessageContainer.classList.remove("fade-out");
   }, 2300);
-};
+}
 
 // DOMContentLoaded 이벤트 발생 시 실행
 document.addEventListener("DOMContentLoaded", () => {

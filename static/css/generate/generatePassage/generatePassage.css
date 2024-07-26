@@ -18,6 +18,13 @@
   color: #111;
 }
 
+.dropdown-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+
 .dropdown {
   position: relative;
   display: inline-block;
@@ -25,7 +32,6 @@
   border-radius: 8px;
   padding: 8px 30px;
   cursor: pointer;
-  margin-left: 10px;
 }
 
 .dropdown .selected {
@@ -80,7 +86,100 @@
   background: #f0f0f0;
 }
 
-.main-content .passage-input-container {
+.dropdown-multi {
+  position: relative;
+  display: inline-block;
+  width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 6.5px;
+  cursor: pointer;
+}
+
+.dropdown-multi .selected-multi {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dropdown-multi .searchIcon {
+  width: 30px;
+  margin-left: 10px;
+  transition: transform 0.3s;
+}
+
+.dropdown-multi-menu {
+  display: none;
+  position: absolute;
+  top: 105%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 100%;
+  max-height: 200px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #fff;
+  z-index: 1;
+  overflow-y: auto;
+}
+
+.dropdown-multi-menu.active {
+  display: block;
+}
+
+.dropdown-multi-menu div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dropdown-multi-menu div:hover {
+  background: #f0f0f0;
+}
+
+.dropdown-multi-menu .selected-item-bg {
+  background: #d0e0ff;
+}
+
+.selected-items-container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  min-height: 32px;
+}
+
+.selected-item {
+  display: inline-block;
+  border-radius: 4px;
+  padding: 2px 6px;
+  margin: 2px;
+  position: relative;
+}
+
+.selected-item .remove {
+  width: 16px;
+  height: 16px;
+  margin-left: 4px;
+  cursor: pointer;
+  background-color: #999;
+  border-radius: 50%;
+}
+
+.search-box {
+  width: 100%;
+  padding: 5px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+}
+
+.passage-flow-input-container {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -92,47 +191,33 @@
   padding: 15px;
 }
 
-.passage-input-container h3 {
+.passage-flow-input-container h3 {
   font-size: 1.2rem;
   font-weight: 600;
   color: #111;
 }
 
-.passage-input-container .editable {
+.passage-flow-input-container textarea {
   width: 100%;
-  min-height: 400px;
+  height: 200px;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 3px;
   resize: none;
   font-size: 0.9rem;
+  background-color: #fff;
   word-break: break-all;
+  overflow-y: auto;
 }
 
-.passage-input-container .editable:focus {
-  outline: none;
-}
-
-.editable.empty::before {
-  content: attr(data-placeholder);
-  color: #999;
-}
-.editable:not(.empty) {
-  color: #111;
-}
-
-.text-underline {
-  text-decoration: underline;
-}
-
-.main-content .problem-create-button-container {
+.passage-flow-input-container .passage-create-button-container {
   display: flex;
   justify-content: flex-end;
   align-items: center;
   width: 100%;
 }
 
-.main-content .problem-create-button-container button {
+.passage-flow-input-container .passage-create-button-container button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -143,16 +228,15 @@
   font-weight: 500;
   border-radius: 4px;
   background-color: var(--primary-color);
-  white-space: nowrap;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s;
 }
 
-.main-content .problem-create-button-container button:hover {
+.passage-flow-input-container .passage-create-button-container button:hover {
   background-color: var(--primary-hover-color);
 }
 
-.modal-confirm-overlay {
+.modal-passage-create-overlay {
   position: fixed;
   display: none;
   top: 0;
@@ -163,11 +247,11 @@
   z-index: 1000;
 }
 
-.modal-confirm-overlay.fade-out {
+.modal-passage-create-overlay.fade-out {
   animation: fadeOut 0.3s forwards;
 }
 
-.modal-confirm {
+.modal-passage-create-overlay .modal-passage-create-content {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -183,7 +267,23 @@
   animation: slideIn 0.3s;
 }
 
-.modal-confirm-close-button {
+.modal-passage-create-overlay
+  .modal-passage-create-content
+  .modal-passage-create-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100px;
+  padding: 0 20px;
+}
+
+.modal-passage-create-container span {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.modal-passage-create-overlay .modal-passage-create-content button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -195,4 +295,8 @@
   letter-spacing: 0.1rem;
   background-color: #7749f8;
   transition: background-color 0.3s;
+}
+
+.modal-passage-create-overlay .modal-passage-create-content button:hover {
+  background-color: #5e3cc9;
 }
