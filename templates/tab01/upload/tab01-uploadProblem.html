@@ -315,7 +315,13 @@
           <!-- 문제 추가/업로드 버튼 -->
           <div class="add-upload-button-container">
             <button type="button" class="add-problem-button">문제 추가</button>
-            <button type="button" class="upload-button">업로드</button>
+            <button
+              type="button"
+              class="upload-button"
+              onclick="openUploadConfirmModal()"
+            >
+              업로드
+            </button>
           </div>
           <!-- //문제 추가/업로드 버튼 -->
         </div>
@@ -323,6 +329,38 @@
       </div>
       <!-- //컨텐츠 -->
     </div>
+
+    <!-- 모달 -->
+    <div class="modal-upload-confirm-overlay">
+      <!-- 업로드 확인 모달 -->
+      <div class="modal-upload-confirm-content">
+        <div class="modal-upload-confirm-message-container">
+          <span class="modal-upload-confirm-message">업로드 하시겠습니까?</span>
+        </div>
+        <div class="modal-upload-confirm-button-container">
+          <button
+            type="button"
+            class="modal-upload-confirm-cancel-button"
+            onclick="closeUploadConfirmModal()"
+          >
+            취소
+          </button>
+          <button
+            type="button"
+            class="modal-upload-confirm-button"
+            onclick="showToastUploadDone()"
+          >
+            확인
+          </button>
+        </div>
+      </div>
+      <!-- //업로드 확인 모달 -->
+
+      <!-- 업로드 완료 토스트 메시지 -->
+      <div class="toast-upload-done">성공적으로<br />업로드 되었습니다.</div>
+      <!-- //업로드 완료 토스트 메시지 -->
+    </div>
+    <!-- //모달 -->
 
     <!-- 스크립트 -->
     <script src="../../../static/js/common.js"></script>

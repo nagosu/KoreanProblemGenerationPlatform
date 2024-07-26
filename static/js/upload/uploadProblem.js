@@ -3,6 +3,22 @@ const underlineMenuList = document.querySelector(".underline-menu-list");
 const underlineMenuItem = document.querySelectorAll(".underline-menu-item");
 const addProblemButton = document.querySelector(".add-problem-button");
 
+const uploadButton = document.querySelector(".upload-button");
+
+const modalUploadConfirmOverlay = document.querySelector(
+  ".modal-upload-confirm-overlay"
+);
+const modalUploadConfirmContent = document.querySelector(
+  ".modal-upload-confirm-content"
+);
+const modalUploadConfirmCancelButton = document.querySelector(
+  ".modal-upload-confirm-cancel-button"
+);
+const modalUploadConfirmButton = document.querySelector(
+  ".modal-upload-confirm-button"
+);
+const toastUploadDone = document.querySelector(".toast-upload-done");
+
 let passageInput = ""; // 입력한 텍스트 저장하는 변수
 
 // 문제 및 정/오답 사유를 저장하는 배열
@@ -93,6 +109,7 @@ function removeUnderline() {
   }
 }
 
+// 문제 및 정/오답 사유 추가 시 텍스트 업데이트
 function updatePassageInput() {
   const div = document.getElementById("editableDiv");
   passageInput = div.innerHTML;
@@ -238,6 +255,36 @@ addProblemButton.addEventListener("click", () => {
     addProblemButton.disabled = true;
   }
 });
+
+function openUploadConfirmModal() {
+  modalUploadConfirmOverlay.classList.remove("fade-out"); //  fade-out 클래스 제거
+  modalUploadConfirmOverlay.style.display = "block";
+  modalUploadConfirmContent.style.display = "flex";
+}
+
+function closeUploadConfirmModal() {
+  modalUploadConfirmOverlay.classList.add("fade-out"); // fade-out 클래스 추가
+  setTimeout(() => {
+    modalUploadConfirmOverlay.style.display = "none";
+    modalUploadConfirmOverlay.classList.remove("fade-out"); // fade-out 클래스 제거
+  }, 300);
+}
+
+function showToastUploadDone() {
+  modalUploadConfirmContent.style.display = "none"; // 모달 컨텐츠 숨김
+  toastUploadDone.style.display = "flex"; // 토스트 메시지 보여줌
+  // 2초 후 토스트 메시지 사라짐
+  setTimeout(() => {
+    modalUploadConfirmOverlay.classList.add("fade-out");
+    toastUploadDone.classList.add("fade-out");
+  }, 2000);
+  setTimeout(() => {
+    modalUploadConfirmOverlay.style.display = "none";
+    toastUploadDone.style.display = "none";
+    modalUploadConfirmOverlay.classList.remove("fade-out");
+    toastUploadDone.classList.remove("fade-out");
+  }, 2300);
+}
 
 // DOMContentLoaded 이벤트 발생 시 실행
 document.addEventListener("DOMContentLoaded", () => {
