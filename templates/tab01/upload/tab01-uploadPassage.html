@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../../../static/css/reset.css" />
     <link rel="stylesheet" href="../../../static/css/common.css" />
+    <link
+      rel="stylesheet"
+      href="../../../static/css/upload/uploadPassage.css"
+    />
     <title>Document</title>
   </head>
   <body>
@@ -240,11 +244,121 @@
             <!-- //밑줄 버튼 리스트 -->
           </div>
           <!-- //밑줄 버튼 -->
+
+          <!-- 문제 유형 선택 -->
+          <div class="problem-type-container">
+            <div class="dropdown-container">
+              <div class="dropdown dropdown-major">
+                <div class="selected">
+                  지문 유형 (대)
+                  <img
+                    src="../../../static/images/icon/svg/Arrow_drop_down.svg"
+                    alt="드롭다운 화살표"
+                    class="triangle"
+                  />
+                </div>
+                <div class="dropdown-menu">
+                  <div class="dropdown-item" data-value="평가원">평가원</div>
+                  <div class="dropdown-item" data-value="교육청">교육청</div>
+                  <div class="dropdown-item" data-value="사관학교">
+                    사관학교
+                  </div>
+                </div>
+              </div>
+              <div class="dropdown dropdown-minor">
+                <div class="selected">
+                  지문 유형 (소)
+                  <img
+                    src="../../../static/images/icon/svg/Arrow_drop_down.svg"
+                    alt="드롭다운 화살표"
+                    class="triangle"
+                  />
+                </div>
+                <div class="dropdown-menu">
+                  <div class="dropdown-item" data-value="인문">인문</div>
+                  <div class="dropdown-item" data-value="예술">예술</div>
+                  <div class="dropdown-item" data-value="과학">과학</div>
+                  <div class="dropdown-item" data-value="사회">사회</div>
+                  <div class="dropdown-item" data-value="경제">경제</div>
+                </div>
+              </div>
+            </div>
+            <div class="passage-name-container">
+              <span class="passage-name-title">지문 이름</span>
+              <input type="text" class="passage-name-input" />
+            </div>
+          </div>
+          <!-- //문제 유형 선택 -->
+
+          <!-- 지문 입력란 -->
+          <div class="passage-input-container">
+            <div
+              id="editableDiv"
+              class="editable"
+              contenteditable="true"
+              data-placeholder="여기에 텍스트를 입력하세요."
+            ></div>
+          </div>
+          <!-- //지문 입력란 -->
+
+          <!-- 지문의 흐름 입력칸 -->
+          <div class="passage-flow-input-container">
+            <h3 class="passage-input-title">지문의 흐름 입력칸</h3>
+            <textarea
+              name="passageFlowInput"
+              class="passage-flow-input"
+              placeholder="지문의 흐름을 입력해주세요."
+            ></textarea>
+          </div>
+          <!-- //지문의 흐름 입력칸 -->
+
+          <!-- 지문 업로드 버튼 -->
+          <div class="passage-create-button-container">
+            <button
+              class="passage-create-button"
+              onclick="openUploadConfirmModal()"
+            >
+              생성
+            </button>
+          </div>
+          <!-- //지문 업로드 버튼 -->
         </div>
         <!-- //메인 컨텐츠 -->
       </div>
       <!-- //컨텐츠 -->
     </div>
+
+    <!-- 모달 -->
+    <div class="modal-upload-confirm-overlay">
+      <!-- 업로드 확인 모달 -->
+      <div class="modal-upload-confirm-content">
+        <div class="modal-upload-confirm-message-container">
+          <span class="modal-upload-confirm-message">업로드 하시겠습니까?</span>
+        </div>
+        <div class="modal-upload-confirm-button-container">
+          <button
+            type="button"
+            class="modal-upload-confirm-cancel-button"
+            onclick="closeUploadConfirmModal()"
+          >
+            취소
+          </button>
+          <button
+            type="button"
+            class="modal-upload-confirm-button"
+            onclick="showToastUploadDone()"
+          >
+            확인
+          </button>
+        </div>
+      </div>
+      <!-- //업로드 확인 모달 -->
+
+      <!-- 업로드 완료 토스트 메시지 -->
+      <div class="toast-upload-done">성공적으로<br />업로드 되었습니다.</div>
+      <!-- //업로드 완료 토스트 메시지 -->
+    </div>
+    <!-- //모달 -->
 
     <!-- 스크립트 -->
     <script src="../../../static/js/common.js"></script>

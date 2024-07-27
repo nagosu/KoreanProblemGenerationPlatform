@@ -1,0 +1,317 @@
+.main-content .problem-type-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  gap: 20px;
+  height: fit-content;
+  background-color: #fff;
+  margin-top: 10px;
+  padding: 15px;
+}
+
+.dropdown-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 8px 30px;
+  cursor: pointer;
+}
+
+.dropdown .selected {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 20px;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.dropdown .triangle {
+  position: absolute;
+  right: 10px;
+  width: 30px;
+  margin-left: 10px;
+  /* transition: transform 0.5s; */
+}
+
+.dropdown.active .triangle {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 105%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #fff;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.dropdown-menu.active {
+  display: block;
+}
+
+.dropdown-menu div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.dropdown-menu div:hover {
+  background: #f0f0f0;
+}
+
+.passage-name-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+
+.passage-name-container span {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #111;
+  white-space: nowrap;
+}
+
+.passage-name-container input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.main-content .passage-input-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  gap: 20px;
+  height: fit-content;
+  background-color: #fff;
+  padding: 15px;
+}
+
+.passage-input-container h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #111;
+}
+
+.passage-input-container .editable {
+  width: 100%;
+  min-height: 200px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  resize: none;
+  font-size: 0.9rem;
+  word-break: break-all;
+}
+
+.passage-input-container .editable:focus {
+  outline: none;
+}
+
+.editable.empty::before {
+  content: attr(data-placeholder);
+  color: #999;
+}
+.editable:not(.empty) {
+  color: #111;
+}
+
+.text-underline {
+  text-decoration: underline;
+}
+
+.passage-flow-input-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  gap: 20px;
+  height: fit-content;
+  background-color: #fff;
+  padding: 15px;
+}
+
+.passage-flow-input-container h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #111;
+}
+
+.passage-flow-input-container textarea {
+  width: 100%;
+  height: 200px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  resize: none;
+  font-size: 0.9rem;
+  background-color: #fff;
+  word-break: break-all;
+  overflow-y: auto;
+}
+
+.passage-create-button-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+}
+
+.passage-create-button-container button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 30px;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 4px;
+  background-color: var(--primary-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s;
+}
+
+.passage-create-button-container button:hover {
+  background-color: var(--primary-hover-color);
+}
+
+.modal-upload-confirm-overlay {
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+}
+
+.modal-upload-confirm-overlay.fade-out {
+  animation: fadeOut 0.3s forwards;
+}
+
+.modal-upload-confirm-overlay .modal-upload-confirm-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  background-color: #fefefe;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 300px;
+  height: 140px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  animation: slideIn 0.3s;
+}
+
+.modal-upload-confirm-overlay .modal-upload-confirm-content.slide-out {
+  animation: slideOut 0.3s;
+}
+
+.modal-upload-confirm-overlay
+  .modal-upload-confirm-content
+  .modal-upload-confirm-message-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100px;
+  padding: 0 20px;
+}
+
+.modal-upload-confirm-message-container span {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.modal-upload-confirm-overlay .modal-upload-confirm-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+}
+
+.modal-upload-confirm-button-container button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.1rem;
+  transition: background-color 0.3s;
+}
+
+.modal-upload-confirm-button-container button:first-child {
+  color: #111;
+  background-color: #ddd;
+}
+
+.modal-upload-confirm-button-container button:last-child {
+  background-color: #7749f8;
+  color: #fff;
+}
+
+.modal-upload-confirm-button-container button:first-child:hover {
+  background-color: #bbb;
+}
+
+.modal-upload-confirm-button-container button:last-child:hover {
+  background-color: #5f3dc4;
+}
+
+.toast-upload-done {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 230px;
+  height: 60px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #111;
+  background: #fefefe;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  animation: slideIn 0.3s;
+}
+
+.toast-upload-done.fade-out {
+  animation: fadeOut 0.3s;
+}
