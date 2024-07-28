@@ -175,10 +175,11 @@ function updatePassageInput() {
 document.addEventListener("DOMContentLoaded", () => {
   const editableDiv = document.getElementById("editableDiv");
 
-  // 로컬 스토리지에서 지문 불러오기
-  const generatedPassage = localStorage.getItem("generatedPassage");
+  // URL 쿼리 파라미터에서 지문 불러오기
+  const urlParams = new URLSearchParams(window.location.search);
+  const generatedPassage = urlParams.get("generatedPassage");
   if (generatedPassage) {
-    editableDiv.innerHTML = generatedPassage; // 지문 입력
+    editableDiv.innerHTML = decodeURIComponent(generatedPassage); // URL 디코딩하여 지문 입력
     updatePlaceholder(); // Placeholder 업데이트
     updatePassageInput(); // 텍스트 업데이트
   }

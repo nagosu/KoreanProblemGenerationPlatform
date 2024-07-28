@@ -15,6 +15,8 @@ const typeSelectItemsTitle = document.querySelectorAll(
   ".type-select-item-title"
 );
 
+const deleteButton = document.querySelector(".delete-button");
+
 // 삭제 확인 모달창 열기
 function openDeleteConfirmModal() {
   modalDeleteConfirmOverlay.classList.remove("fade-out"); //  fade-out 클래스 제거
@@ -53,9 +55,26 @@ function selectAll() {
   checkboxes.forEach((checkbox) => {
     checkbox.checked = true;
   });
+  updateDeleteButtonState();
 }
 
 function moveToTypeProblemDetail() {
   window.location.href =
     "../../../templates/tab01/type/tab01-typeProblemDetail.html";
 }
+
+// 삭제 버튼 상태 업데이트 함수
+function updateDeleteButtonState() {
+  const isAnyCheckboxChecked = Array.from(checkboxes).some(
+    (checkbox) => checkbox.checked
+  );
+  deleteButton.disabled = !isAnyCheckboxChecked;
+}
+
+// 체크박스 상태 변경 시 이벤트 리스너 추가
+checkboxes.forEach((checkbox) => {
+  checkbox.addEventListener("change", updateDeleteButtonState);
+});
+
+// 초기 상태 업데이트
+updateDeleteButtonState();

@@ -241,7 +241,6 @@ function createProblem() {
   const editableDivContent = document.querySelector(
     ".result-wrapper .editable"
   ).innerHTML;
-  localStorage.setItem("generatedPassage", editableDivContent); // 로컬 스토리지에 지문 저장
-  window.location.href =
-    "../../../templates/tab01/generate/tab01-generateProblem.html";
+  const encodedContent = encodeURIComponent(editableDivContent); // URL 인코딩
+  window.location.href = `../../../templates/tab01/generate/tab01-generateProblem.html?generatedPassage=${encodedContent}`;
 }
