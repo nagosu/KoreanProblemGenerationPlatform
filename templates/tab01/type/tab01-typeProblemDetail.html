@@ -194,11 +194,168 @@
             <h2 class="main-content-header-title">유형 1 : 지문의 전개방식</h2>
           </div>
           <!-- //타이틀 -->
+
+          <!-- 밑줄 버튼 -->
+          <div class="underline-container" style="display: none">
+            <div class="underline-button-wrapper">
+              <button class="undeline-cancel" onclick="removeUnderline()">
+                밑줄 취소
+              </button>
+              <button class="underline-apply">밑줄 적용</button>
+            </div>
+            <!-- 밑줄 버튼 리스트 -->
+            <div class="underline-menu-list">
+              <button
+                type="button"
+                class="underline-menu-item"
+                onclick="applyUnderline('밑줄1.')"
+              >
+                밑줄1.
+              </button>
+              <button
+                type="button"
+                class="underline-menu-item"
+                onclick="applyUnderline('밑줄2.')"
+              >
+                밑줄2.
+              </button>
+              <button
+                type="button"
+                class="underline-menu-item"
+                onclick="applyUnderline('밑줄3.')"
+              >
+                밑줄3.
+              </button>
+              <button
+                type="button"
+                class="underline-menu-item"
+                onclick="applyUnderline('밑줄4.')"
+              >
+                밑줄4.
+              </button>
+              <button
+                type="button"
+                class="underline-menu-item"
+                onclick="applyUnderline('밑줄5.')"
+              >
+                밑줄5.
+              </button>
+            </div>
+            <!-- //밑줄 버튼 리스트 -->
+          </div>
+          <!-- //밑줄 버튼 -->
+
+          <!-- 문제 상세 -->
+          <div class="passage-input-container">
+            <div
+              id="editableDiv"
+              class="editable"
+              contenteditable="false"
+              data-placeholder="여기에 텍스트를 입력하세요."
+            >
+              로렘 입숨(lorem ipsum; 줄여서 립숨, lipsum)은 출판이나 그래픽
+              디자인 분야에서 폰트, 타이포그래피, 레이아웃 같은 그래픽 요소나
+              시각적 연출을 보여줄 때 사용하는 표준 채우기 텍스트로, 최종
+              결과물에 들어가는 실제적인 문장 내용이 채워지기 전에 시각 디자인
+              프로젝트 모형의 채움 글로도 이용된다. 이런 용도로 사용할 때 로렘
+              입숨을 그리킹(greeking)이라고도 부르며, 때로 로렘 입숨은 공간만
+              차지하는 무언가를 지칭하는 용어로도 사용된다. 로렘 입숨(lorem
+              ipsum; 줄여서 립숨, lipsum)은 출판이나 그래픽 디자인 분야에서
+              폰트, 타이포그래피, 레이아웃 같은 그래픽 요소나 시각적 연출을
+              보여줄 때 사용하는 표준 채우기 텍스트로, 최종 결과물에 들어가는
+              실제적인 문장 내용이 채워지기 전에 시각 디자인 프로젝트 모형의
+              채움 글로도 이용된다. 이런 용도로 사용할 때 로렘 입숨을
+              그리킹(greeking)이라고도 부르며, 때로 로렘 입숨은 공간만 차지하는
+              무언가를 지칭하는 용어로도 사용된다. 로렘 입숨(lorem ipsum; 줄여서
+              립숨, lipsum)은 출판이나 그래픽 디자인 분야에서 폰트,
+              타이포그래피, 레이아웃 같은 그래픽 요소나 시각적 연출을 보여줄 때
+              사용하는 표준 채우기 텍스트로, 최종 결과물에 들어가는 실제적인
+              문장 내용이 채워지기 전에 시각 디자인 프로젝트 모형의 채움 글로도
+              이용된다. 이런 용도로 사용할 때 로렘 입숨을
+              그리킹(greeking)이라고도 부르며, 때로 로렘 입숨은 공간만 차지하는
+              무언가를 지칭하는 용어로도 사용된다.로렘 입숨(lorem ipsum; 줄여서
+              립숨, lipsum)은 출판이나 그래픽 디자인 분야에서 폰트,
+              타이포그래피, 레이아웃 같은 그래픽 요소나 시각적 연출을 보여줄 때
+              사용하는 표준 채우기 텍스트로, 최종 결과물에 들어가는 실제적인
+              문장 내용이 채워지기 전에 시각 디자인 프로젝트 모형의 채움 글로도
+              이용된다. 이런 용도로 사용할 때 로렘 입숨을
+              그리킹(greeking)이라고도 부르며, 때로 로렘 입숨은 공간만 차지하는
+              무언가를 지칭하는 용어로도 사용된다. 로렘 입숨(lorem ipsum; 줄여서
+              립숨, lipsum)은 출판이나 그래픽 디자인 분야에서 폰트,
+              타이포그래피, 레이아웃 같은 그래픽 요소나 시각적 연출을 보여줄 때
+              사용하는 표준 채우기 텍스트로, 최종 결과물에 들어가는 실제적인
+              문장 내용이 채워지기 전에 시각 디자인 프로젝트 모형의 채움 글로도
+              이용된다. 이런 용도로 사용할 때 로렘 입숨을
+              그리킹(greeking)이라고도 부르며, 때로 로렘 입숨은 공간만 차지하는
+              무언가를 지칭하는 용어로도 사용된다. 로렘 입숨(lorem ipsum; 줄여서
+              립숨, lipsum)은 출판이나 그래픽 디자인 분야에서 폰트,
+              타이포그래피, 레이아웃 같은 그래픽 요소나 시각적 연출을 보여줄 때
+              사용하는 표준 채우기 텍스트로, 최종 결과물에 들어가는 실제적인
+              문장 내용이 채워지기 전에 시각 디자인 프로젝트 모형의 채움 글로도
+              이용된다. 이런 용도로 사용할 때 로렘 입숨을
+              그리킹(greeking)이라고도 부르며, 때로 로렘 입숨은 공간만 차지하는
+              무언가를 지칭하는 용어로도 사용된다.
+            </div>
+          </div>
+          <!-- //문제 상세 -->
+
+          <!-- 수정/저장 버튼 -->
+          <div class="button-container">
+            <button
+              type="button"
+              class="edit-button"
+              onclick="editTypeProblemDetail()"
+            >
+              수정
+            </button>
+            <button
+              type="button"
+              class="save-button"
+              onclick="openSaveConfirmModal()"
+            >
+              저장
+            </button>
+          </div>
+          <!-- //수정/저장 버튼 -->
         </div>
         <!-- //메인 컨텐츠 -->
       </div>
       <!-- //컨텐츠 -->
     </div>
+
+    <!-- 저장 확인 모달 -->
+    <div class="modal-save-confirm-overlay">
+      <!-- 업로드 확인 모달 -->
+      <div class="modal-save-confirm-content">
+        <div class="modal-save-confirm-message-container">
+          <span class="modal-save-confirm-message"
+            >해당 내용을 저장하시겠습니까?</span
+          >
+        </div>
+        <div class="modal-save-confirm-button-container">
+          <button
+            type="button"
+            class="modal-save-confirm-cancel-button"
+            onclick="closeSaveConfirmModal()"
+          >
+            취소
+          </button>
+          <button
+            type="button"
+            class="modal-save-confirm-button"
+            onclick="showToastSaveDone()"
+          >
+            확인
+          </button>
+        </div>
+      </div>
+      <!-- //업로드 확인 모달 -->
+
+      <!-- 업로드 완료 토스트 메시지 -->
+      <div class="toast-save-done">저장되었습니다.</div>
+      <!-- //업로드 완료 토스트 메시지 -->
+    </div>
+    <!-- //저장 확인 모달 -->
 
     <!-- 스크립트 -->
     <script src="../../../static/js/common.js"></script>
