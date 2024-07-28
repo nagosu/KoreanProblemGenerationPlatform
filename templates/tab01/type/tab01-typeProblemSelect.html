@@ -195,14 +195,174 @@
           </div>
           <!-- //타이틀 -->
 
-          <div class="type-select-container"></div>
+          <!-- 문제 유형 선택 -->
+          <div class="type-select-container">
+            <div class="type-select-item">
+              <input type="checkbox" id="checkbox1" name="checkbox1" />
+              <span
+                class="type-select-item-title"
+                onclick="moveToTypeProblemDetail()"
+                >문제 1</span
+              >
+            </div>
+            <div class="type-select-item">
+              <input type="checkbox" id="checkbox1" name="checkbox1" />
+              <span
+                class="type-select-item-title"
+                onclick="moveToTypeProblemDetail()"
+                >문제 2</span
+              >
+            </div>
+            <div class="type-select-item">
+              <input type="checkbox" id="checkbox1" name="checkbox1" />
+              <span
+                class="type-select-item-title"
+                onclick="moveToTypeProblemDetail()"
+                >문제 3</span
+              >
+            </div>
+            <div class="type-select-item">
+              <input type="checkbox" id="checkbox1" name="checkbox1" />
+              <span
+                class="type-select-item-title"
+                onclick="moveToTypeProblemDetail()"
+                >문제 4</span
+              >
+            </div>
+            <div class="type-select-item">
+              <input type="checkbox" id="checkbox1" name="checkbox1" />
+              <span
+                class="type-select-item-title"
+                onclick="moveToTypeProblemDetail()"
+                >문제 5</span
+              >
+            </div>
+            <div class="type-select-item">
+              <input type="checkbox" id="checkbox1" name="checkbox1" />
+              <span
+                class="type-select-item-title"
+                onclick="moveToTypeProblemDetail()"
+                >문제 6</span
+              >
+            </div>
+            <div class="type-select-item">
+              <input type="checkbox" id="checkbox1" name="checkbox1" />
+              <span
+                class="type-select-item-title"
+                onclick="moveToTypeProblemDetail()"
+                >문제 7</span
+              >
+            </div>
+            <div class="type-select-item">
+              <input type="checkbox" id="checkbox1" name="checkbox1" />
+              <span
+                class="type-select-item-title"
+                onclick="moveToTypeProblemDetail()"
+                >문제 8</span
+              >
+            </div>
+            <div class="type-select-item">
+              <input type="checkbox" id="checkbox1" name="checkbox1" />
+              <span
+                class="type-select-item-title"
+                onclick="moveToTypeProblemDetail()"
+                >문제 9</span
+              >
+            </div>
+            <div class="type-select-item">
+              <input type="checkbox" id="checkbox1" name="checkbox1" />
+              <span
+                class="type-select-item-title"
+                onclick="moveToTypeProblemDetail()"
+                >문제 10</span
+              >
+            </div>
+          </div>
+          <!-- //문제 유형 선택 -->
+
+          <!-- 전체선택/삭제 버튼 -->
+          <div class="button-container">
+            <button
+              type="button"
+              class="select-all-button"
+              onclick="selectAll()"
+            >
+              전체선택
+            </button>
+            <button
+              type="button"
+              class="delete-button"
+              onclick="openDeleteConfirmModal()"
+            >
+              삭제
+            </button>
+          </div>
+          <!-- //전체선택/삭제 버튼 -->
+
+          <!-- 페이지네이션 -->
+          <div class="pagination">
+            <button class="pagination__button-prev">
+              <img
+                src="../../../static/images/icon/svg/Expand_left_double.svg"
+              />
+            </button>
+            <button class="pagination__button pagination__button--active">
+              1
+            </button>
+            <button class="pagination__button">2</button>
+            <button class="pagination__button">3</button>
+            <button class="pagination__button">4</button>
+            <button class="pagination__button">5</button>
+            <button class="pagination__button-next">
+              <img
+                src="../../../static/images/icon/svg/Expand_right_double.svg"
+              />
+            </button>
+          </div>
+          <!-- //페이지네이션 -->
         </div>
         <!-- //메인 컨텐츠 -->
       </div>
       <!-- //컨텐츠 -->
     </div>
 
+    <!-- 삭제 확인 모달 -->
+    <div class="modal-delete-confirm-overlay">
+      <!-- 업로드 확인 모달 -->
+      <div class="modal-delete-confirm-content">
+        <div class="modal-delete-confirm-message-container">
+          <span class="modal-delete-confirm-message"
+            >유형을 삭제하면 폴더 안에 있는 문제가<br />모두 삭제됩니다.<br />그래도
+            삭제하시겠습니까?</span
+          >
+        </div>
+        <div class="modal-delete-confirm-button-container">
+          <button
+            type="button"
+            class="modal-delete-confirm-cancel-button"
+            onclick="closeDeleteConfirmModal()"
+          >
+            취소
+          </button>
+          <button
+            type="button"
+            class="modal-upload-confirm-button"
+            onclick="showToastDeleteDone()"
+          >
+            확인
+          </button>
+        </div>
+      </div>
+      <!-- //업로드 확인 모달 -->
+
+      <!-- 업로드 완료 토스트 메시지 -->
+      <div class="toast-delete-done">삭제되었습니다.</div>
+      <!-- //업로드 완료 토스트 메시지 -->
+    </div>
+    <!-- //삭제 확인 모달 -->
+
     <!-- 스크립트 -->
     <script src="../../../static/js/common.js"></script>
+    <script src="../../../static/js/type/typeProblemSelect.js"></script>
   </body>
 </html>
