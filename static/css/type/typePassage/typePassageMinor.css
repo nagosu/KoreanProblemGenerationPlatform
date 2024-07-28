@@ -20,6 +20,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(5, 1fr);
+  grid-auto-flow: column;
   grid-gap: 10px;
   width: 100%;
   height: 500px;
@@ -123,7 +124,7 @@
   height: 35px;
   justify-content: center;
   align-items: center;
-  background-color: var(--background-main-color);
+  background-color: #fff;
 }
 
 .pagination__button-prev {
@@ -132,7 +133,8 @@
   height: 100%;
   justify-content: center;
   align-items: center;
-  border: 1px solid var(--primary-color);
+  background-color: #fff;
+  border: 1px solid #1b00ff;
   border-right: none;
   border-top-left-radius: 8px;
   border-top-right-radius: 0;
@@ -146,10 +148,11 @@
     border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out,
     -webkit-box-shadow 0.15s ease-in-out;
   user-select: none;
+  overflow: hidden;
 
   &:hover {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
+    background-color: #1b00ff;
+    border-color: #1b00ff;
   }
 }
 
@@ -160,7 +163,8 @@
   height: 100%;
   justify-content: center;
   align-items: center;
-  border: 1.2px solid var(--primary-color);
+  background-color: #fff;
+  border: 1.2px solid #1b00ff;
   border-right: none;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
@@ -177,7 +181,7 @@
 
   &:hover {
     color: #fff;
-    background-color: var(--primary-color);
+    background-color: #1b00ff;
   }
 }
 
@@ -193,7 +197,8 @@
   height: 100%;
   justify-content: center;
   align-items: center;
-  border: 1.2px solid var(--primary-color);
+  background-color: #fff;
+  border: 1.2px solid #1b00ff;
   border-top-left-radius: 0;
   border-top-right-radius: 8px;
   border-bottom-left-radius: 0;
@@ -208,18 +213,23 @@
   user-select: none;
 
   &:hover {
-    background-color: var(--primary-color);
+    background-color: #1b00ff;
   }
 }
 
-.pagination__button-next:hover svg path {
-  stroke: #fff;
+.pagination__button-prev img,
+.pagination__button-next img {
+  transition: filter 0.3s;
+}
+
+.pagination__button-prev:hover img,
+.pagination__button-next:hover img {
+  filter: invert(100%);
 }
 
 .pagination__button--active {
   color: #fff;
-  background-color: var(--primary-color);
-  border-color: var(--primary-color);
+  background-color: #1b00ff;
 }
 
 .modal-delete-confirm-overlay {
