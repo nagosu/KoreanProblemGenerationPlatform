@@ -418,8 +418,8 @@
   justify-content: flex-start;
   align-items: center;
   width: 250px;
-  height: 100vh;
-  /* border-radius: 8px; */
+  height: fit-content;
+  border-radius: 6px;
   background-color: var(--primary-color);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }

@@ -51,6 +51,8 @@ function showToastSaveDone() {
     toastSaveDone.style.display = "none";
     modalSaveConfirmOverlay.classList.remove("fade-out");
     toastSaveDone.classList.remove("fade-out");
+    window.location.href =
+      "../../../templates/tab01/type/tab01-typeProblemSelect.html";
   }, 2300);
 }
 

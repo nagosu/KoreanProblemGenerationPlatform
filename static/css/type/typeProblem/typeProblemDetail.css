@@ -7,6 +7,9 @@
   gap: 20px;
   height: fit-content;
   background-color: #fff;
+  border: 1px solid var(--border-light-color);
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
   padding: 15px;
 }
 
@@ -24,6 +27,7 @@
   border-radius: 3px;
   resize: none;
   font-size: 0.9rem;
+  text-align: center;
   word-break: break-all;
 }
 
@@ -36,6 +40,12 @@
   color: #999;
 }
 .editable:not(.empty) {
+  color: #111;
+}
+
+.editable .editable-title {
+  font-size: 1.4rem;
+  font-weight: 600;
   color: #111;
 }
 
