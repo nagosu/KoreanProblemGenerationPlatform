@@ -116,7 +116,7 @@ function applyUnderline(underlineText) {
   range.deleteContents();
   range.insertNode(span);
 
-  updatePassateInput(); // 밑줄 적용 후 텍스트 업데이트
+  updatePassageInput(); // 밑줄 적용 후 텍스트 업데이트
 }
 
 // 밑줄 삭제 버튼 클릭 시 밑줄 제거
@@ -148,13 +148,24 @@ function removeUnderline() {
     parent.removeChild(parentElement);
     selection.removeAllRanges();
 
-    updatePassateInput(); // 밑줄 제거 후 텍스트 업데이트
+    updatePassageInput(); // 밑줄 제거 후 텍스트 업데이트
   } else {
     alert("선택한 텍스트에 밑줄이 없습니다.");
   }
 }
 
-function updatePassateInput() {
+// Placeholder 처리
+function updatePlaceholder() {
+  if (editableDiv.textContent.trim() === "") {
+    // 텍스트가 없을 경우
+    editableDiv.classList.add("empty");
+  } else {
+    // 텍스트가 있을 경우
+    editableDiv.classList.remove("empty");
+  }
+}
+
+function updatePassageInput() {
   const div = document.getElementById("editableDiv");
   passageInput = div.innerHTML;
   console.log("passageInput: ", passageInput);
@@ -164,21 +175,18 @@ function updatePassateInput() {
 document.addEventListener("DOMContentLoaded", () => {
   const editableDiv = document.getElementById("editableDiv");
 
-  // Placeholder 처리
-  const updatePlaceholder = () => {
-    if (editableDiv.textContent.trim() === "") {
-      // 텍스트가 없을 경우
-      editableDiv.classList.add("empty");
-    } else {
-      // 텍스트가 있을 경우
-      editableDiv.classList.remove("empty");
-    }
-  };
+  // 로컬 스토리지에서 지문 불러오기
+  const generatedPassage = localStorage.getItem("generatedPassage");
+  if (generatedPassage) {
+    editableDiv.innerHTML = generatedPassage; // 지문 입력
+    updatePlaceholder(); // Placeholder 업데이트
+    updatePassageInput(); // 텍스트 업데이트
+  }
 
   // 텍스트 입력 시 Placeholder 업데이트
   editableDiv.addEventListener("input", () => {
     updatePlaceholder();
-    updatePassateInput();
+    updatePassageInput();
   });
 
   // 초기 Placeholder 업데이트

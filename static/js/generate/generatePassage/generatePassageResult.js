@@ -2,6 +2,7 @@ const underlineApply = document.querySelector(".underline-apply");
 const underlineMenuList = document.querySelector(".underline-menu-list");
 const underlineMenuItem = document.querySelectorAll(".underline-menu-item");
 
+const createProblemButton = document.querySelector(".create-problem-button");
 const editButton = document.querySelector(".edit-button");
 const copyButton = document.querySelector(".copy-button");
 
@@ -234,3 +235,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+// 위의 지문으로 문제 생성하기 버튼 클릭 시
+function createProblem() {
+  const editableDivContent = document.querySelector(
+    ".result-wrapper .editable"
+  ).innerHTML;
+  localStorage.setItem("generatedPassage", editableDivContent); // 로컬 스토리지에 지문 저장
+  window.location.href =
+    "../../../templates/tab01/generate/tab01-generateProblem.html";
+}
