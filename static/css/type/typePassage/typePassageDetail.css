@@ -1,0 +1,184 @@
+.main-content .passage-input-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  gap: 20px;
+  height: fit-content;
+  background-color: #fff;
+  padding: 15px;
+}
+
+.passage-input-container h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #111;
+}
+
+.passage-input-container .editable {
+  width: 100%;
+  height: fit-content;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  resize: none;
+  font-size: 0.9rem;
+  word-break: break-all;
+}
+
+.passage-input-container .editable:focus {
+  outline: none;
+}
+
+.editable.empty::before {
+  content: attr(data-placeholder);
+  color: #999;
+}
+.editable:not(.empty) {
+  color: #111;
+}
+
+.text-underline {
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.button-container button {
+  padding: 5px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  background-color: var(--primary-color);
+  color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button-container button:hover {
+  background-color: var(--primary-hover-color);
+}
+
+.modal-save-confirm-overlay {
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+}
+
+.modal-save-confirm-overlay.fade-out {
+  animation: fadeOut 0.3s forwards;
+}
+
+.modal-save-confirm-overlay .modal-save-confirm-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background-color: #fefefe;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 300px;
+  height: 140px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  animation: slideIn 0.3s;
+}
+
+.modal-save-confirm-overlay .modal-save-confirm-content.slide-out {
+  animation: slideOut 0.3s;
+}
+
+.modal-save-confirm-overlay
+  .modal-save-confirm-content
+  .modal-save-confirm-message-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100px;
+  padding: 0 20px;
+}
+
+.modal-save-confirm-message-container span {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.modal-save-confirm-overlay .modal-save-confirm-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+}
+
+.modal-save-confirm-button-container button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.1rem;
+  transition: background-color 0.3s;
+}
+
+.modal-save-confirm-button-container button:first-child {
+  color: #111;
+  background-color: #ddd;
+}
+
+.modal-save-confirm-button-container button:last-child {
+  background-color: #7749f8;
+  color: #fff;
+}
+
+.modal-save-confirm-button-container button:first-child:hover {
+  background-color: #bbb;
+}
+
+.modal-save-confirm-button-container button:last-child:hover {
+  background-color: #5f3dc4;
+}
+
+.toast-save-done {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 230px;
+  height: 60px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #111;
+  background: #fefefe;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  animation: slideIn 0.3s;
+}
+
+.toast-save-done.fade-out {
+  animation: fadeOut 0.3s;
+}
