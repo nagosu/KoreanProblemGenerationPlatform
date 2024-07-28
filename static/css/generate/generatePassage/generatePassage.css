@@ -44,6 +44,7 @@
   padding-right: 20px;
   font-size: 1.1rem;
   font-weight: 500;
+  white-space: nowrap;
 }
 
 .dropdown .triangle {
@@ -68,7 +69,7 @@
   border: 1px solid #ccc;
   border-radius: 8px;
   background: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   z-index: 1;
   overflow: hidden;
 }
@@ -96,7 +97,7 @@
   width: 200px;
   border: 1px solid #111;
   border-radius: 8px;
-  padding: 6.5px;
+  padding: 3.75px 6.5px;
   cursor: pointer;
 }
 
@@ -136,51 +137,54 @@
   justify-content: center;
   align-items: center;
   padding: 10px;
+  font-size: 1rem;
   cursor: pointer;
+  transition: background 0.3s;
 }
 
 .dropdown-multi-menu div:hover {
-  background: #f0f0f0;
+  background: #ddd;
 }
 
 .dropdown-multi-menu .selected-item-bg {
-  background: #d0e0ff;
+  background: #ccc;
 }
 
 .selected-items-container {
-  display: flex;
-  align-items: center;
+  display: none;
+  align-items: flex-start;
   flex-wrap: wrap;
-  border: 1px solid #ccc;
+  border: 1px solid #111;
   border-radius: 8px;
-  padding: 10px;
+  padding: 3.25px 10px;
   min-height: 32px;
 }
 
 .selected-item {
-  display: inline-block;
-  border-radius: 4px;
+  display: flex;
+  align-items: flex-start;
   padding: 2px 6px;
   margin: 2px;
   position: relative;
+  gap: 2px;
 }
 
 .selected-item .remove {
   width: 16px;
   height: 16px;
-  margin-left: 4px;
   cursor: pointer;
-  background-color: #999;
   border-radius: 50%;
 }
 
 .search-box {
   width: 100%;
   padding: 5px;
-  font-size: 1rem;
+  font-size: 1.1rem;
+  font-weight: 500;
   box-sizing: border-box;
   border: none;
   outline: none;
+  text-align: center;
 }
 
 .passage-flow-input-container {
@@ -192,6 +196,9 @@
   gap: 20px;
   height: fit-content;
   background-color: #fff;
+  border: 1px solid var(--border-light-color);
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   padding: 15px;
 }
 
@@ -205,7 +212,7 @@
   width: 100%;
   height: 200px;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border-light-color);
   border-radius: 3px;
   resize: none;
   font-size: 0.9rem;

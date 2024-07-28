@@ -9,6 +9,8 @@ const modalPassageCreateCloseButton = document.querySelector(
   ".modal-passage-create-close-button"
 );
 
+const container = document.querySelector(".selected-items-container");
+
 // 드롭다운 관련 코드
 
 let passageTypeMajor = ""; // 지문 유형(대)을 저장할 변수
@@ -102,7 +104,7 @@ function toggleSelectedItem(text) {
 
     const removeBtn = document.createElement("img");
     removeBtn.className = "remove";
-    removeBtn.src = "../../../static/images/icon/svg/Close_round_light.svg";
+    removeBtn.src = "../../../static/images/icon/svg/Close_round_fill.svg";
     removeBtn.alt = "삭제";
     removeBtn.onclick = function () {
       container.removeChild(selectedItem);
@@ -152,6 +154,13 @@ function updateDropdown() {
       item.classList.remove("selected-item-bg");
     }
   });
+
+  // 선택된 항목이 있으면 container를 flex로 설정
+  if (selectedPassages.length > 0) {
+    container.style.display = "flex";
+  } else {
+    container.style.display = "none";
+  }
 }
 
 // 선택된 항목 정렬
