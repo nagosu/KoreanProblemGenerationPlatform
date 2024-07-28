@@ -16,8 +16,18 @@ problemCreateButton.addEventListener("click", () => {
   if (problemType.trim() === "" || passageInput.trim() === "") {
     openModalConfirm();
   } else {
+    // 현재 페이지의 URL 확인하여 결과 페이지 결정
+    const currentUrl = window.location.href;
+    let resultPageUrl = "";
+
+    if (currentUrl.includes("tab01-generateProblem.html")) {
+      resultPageUrl = "tab01-generateProblemResult.html";
+    } else if (currentUrl.includes("tab02-generateProblem.html")) {
+      resultPageUrl = "tab02-generateProblemResult.html";
+    }
+
     // 문제 생성 api 로직 추가해야함
-    window.location.href = "tab01-generateProblemResult.html";
+    window.location.href = resultPageUrl;
   }
 });
 

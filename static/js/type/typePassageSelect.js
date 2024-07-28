@@ -59,8 +59,19 @@ function selectAll() {
 }
 
 function moveToTypePassageDetail() {
-  window.location.href =
-    "../../../templates/tab01/type/tab01-typePassageDetail.html";
+  // 현재 페이지의 URL 확인하여 결과 페이지 결정
+  const currentUrl = window.location.href;
+  let resultPageUrl = "";
+
+  if (currentUrl.includes("tab01-typePassageSelect.html")) {
+    resultPageUrl =
+      "../../../templates/tab01/type/tab01-typePassageDetail.html";
+  } else if (currentUrl.includes("tab02-typePassageSelect.html")) {
+    resultPageUrl =
+      "../../../templates/tab02/type/tab02-typePassageDetail.html";
+  }
+
+  window.location.href = resultPageUrl;
 }
 
 // 삭제 버튼 상태 업데이트 함수

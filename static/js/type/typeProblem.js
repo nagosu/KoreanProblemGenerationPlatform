@@ -78,6 +78,17 @@ function closeTypeAddModal() {
 }
 
 function moveToTypeProblemSelect() {
-  window.location.href =
-    "../../../templates/tab01/type/tab01-typeProblemSelect.html";
+  // 현재 페이지의 URL 확인하여 결과 페이지 결정
+  const currentUrl = window.location.href;
+  let resultPageUrl = "";
+
+  if (currentUrl.includes("tab01-typeProblem.html")) {
+    resultPageUrl =
+      "../../../templates/tab01/type/tab01-typeProblemSelect.html";
+  } else if (currentUrl.includes("tab02-typeProblem.html")) {
+    resultPageUrl =
+      "../../../templates/tab02/type/tab02-typeProblemSelect.html";
+  }
+
+  window.location.href = resultPageUrl;
 }

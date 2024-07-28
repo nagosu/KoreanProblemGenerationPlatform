@@ -188,7 +188,18 @@ passageCreateButton.addEventListener("click", () => {
   ) {
     showPassageCreateModal();
   } else {
-    window.location.href = "./tab01-generatePassageResult.html";
+    // 현재 페이지의 URL 확인하여 결과 페이지 결정
+    const currentUrl = window.location.href;
+    let resultPageUrl = "";
+
+    if (currentUrl.includes("tab01-generatePassage.html")) {
+      resultPageUrl = "tab01-generatePassageResult.html";
+    } else if (currentUrl.includes("tab02-generatePassage.html")) {
+      resultPageUrl = "tab02-generatePassageResult.html";
+    }
+
+    // 문제 생성 api 로직 추가해야함
+    window.location.href = resultPageUrl;
   }
 });
 

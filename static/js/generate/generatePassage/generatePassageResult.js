@@ -236,11 +236,21 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// 위의 지문으로 문제 생성하기 버튼 클릭 시
 function createProblem() {
   const editableDivContent = document.querySelector(
     ".result-wrapper .editable"
   ).innerHTML;
   const encodedContent = encodeURIComponent(editableDivContent); // URL 인코딩
-  window.location.href = `../../../templates/tab01/generate/tab01-generateProblem.html?generatedPassage=${encodedContent}`;
+
+  // 현재 페이지의 URL 확인하여 결과 페이지 결정
+  const currentUrl = window.location.href;
+  let resultPageUrl = "";
+
+  if (currentUrl.includes("tab01-generatePassageResult.html")) {
+    resultPageUrl = `../../../templates/tab01/generate/tab01-generateProblem.html?generatedPassage=${encodedContent}`;
+  } else if (currentUrl.includes("tab02-generatePassageResult.html")) {
+    resultPageUrl = `../../../templates/tab02/generate/tab02-generateProblem.html?generatedPassage=${encodedContent}`;
+  }
+
+  window.location.href = resultPageUrl;
 }

@@ -41,18 +41,32 @@ function closeSaveConfirmModal() {
 function showToastSaveDone() {
   modalSaveConfirmContent.style.display = "none"; // 모달 컨텐츠 숨김
   toastSaveDone.style.display = "flex"; // 토스트 메시지 보여줌
+
   // 2초 후 토스트 메시지 사라짐
   setTimeout(() => {
     modalSaveConfirmOverlay.classList.add("fade-out");
     toastSaveDone.classList.add("fade-out");
   }, 2000);
+
   setTimeout(() => {
     modalSaveConfirmOverlay.style.display = "none";
     toastSaveDone.style.display = "none";
     modalSaveConfirmOverlay.classList.remove("fade-out");
     toastSaveDone.classList.remove("fade-out");
-    window.location.href =
-      "../../../templates/tab01/type/tab01-typeProblemSelect.html";
+
+    // 현재 페이지의 URL 확인하여 결과 페이지 결정
+    const currentUrl = window.location.href;
+    let resultPageUrl = "";
+
+    if (currentUrl.includes("tab01-typeProblemDetail.html")) {
+      resultPageUrl =
+        "../../../templates/tab01/type/tab01-typeProblemSelect.html";
+    } else if (currentUrl.includes("tab02-typeProblemDetail.html")) {
+      resultPageUrl =
+        "../../../templates/tab02/type/tab02-typeProblemSelect.html";
+    }
+
+    window.location.href = resultPageUrl;
   }, 2300);
 }
 
