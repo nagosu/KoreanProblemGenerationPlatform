@@ -228,6 +228,13 @@ function showToastUploadDone() {
     toastUploadDone.style.display = "none";
     modalUploadConfirmOverlay.classList.remove("fade-out");
     toastUploadDone.classList.remove("fade-out");
+
+    // 초기화
+    document.getElementById("editableDiv").innerHTML = "";
+    document.querySelector(".passage-flow-input").value = "";
+    passageInput = "";
+    passageFlowInput = "";
+    updatePlaceholder(); // Placeholder 업데이트
   }, 2300);
 }
 

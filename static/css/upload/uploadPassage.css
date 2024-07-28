@@ -6,6 +6,9 @@
   gap: 20px;
   height: fit-content;
   background-color: #fff;
+  border: 1px solid var(--border-light-color);
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   margin-top: 10px;
   padding: 15px;
 }
@@ -33,6 +36,7 @@
   padding-right: 20px;
   font-size: 1.1rem;
   font-weight: 500;
+  white-space: nowrap;
 }
 
 .dropdown .triangle {
@@ -83,7 +87,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 10px;
+  gap: 15px;
 }
 
 .passage-name-container span {
@@ -94,11 +98,12 @@
 }
 
 .passage-name-container input {
-  width: 100%;
-  padding: 8px;
+  width: 300px;
+  padding: 7px 10px;
   border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 1.1rem;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  font-size: 1rem;
   font-weight: 500;
 }
 
@@ -111,6 +116,9 @@
   gap: 20px;
   height: fit-content;
   background-color: #fff;
+  border: 1px solid var(--border-light-color);
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   padding: 15px;
 }
 
@@ -156,6 +164,9 @@
   gap: 20px;
   height: fit-content;
   background-color: #fff;
+  border: 1px solid var(--border-light-color);
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   padding: 15px;
 }
 
