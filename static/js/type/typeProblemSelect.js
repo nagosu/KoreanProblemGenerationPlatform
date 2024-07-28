@@ -55,7 +55,7 @@ function selectAll() {
   checkboxes.forEach((checkbox) => {
     checkbox.checked = true;
   });
-  updateDeleteButtonState();
+  updateDeleteButtonState(); // 삭제 버튼 상태 업데이트
 }
 
 function moveToTypeProblemDetail() {
