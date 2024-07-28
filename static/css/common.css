@@ -1,8 +1,13 @@
 :root {
-  --primary-color: #007b5e; /* 청록색 */
-  --primary-hover-color: #005c4f; /* 청록색 (hover) */
-  --primary-highlight-color: #00a68c; /* 청록색 (highlight) */
-  --background-main-color: #ececec; /* 배경색 */
+  --primary-color: #142127;
+  --primary-hover-color: #254652;
+  --primary-highlight-color: rgba(236, 240, 244, 0.19);
+  --primary-button-color: #1b3133;
+  --primary-button-hover-color: #1e5558;
+  --border-light-color: #dce4e8;
+  --modal-button-color: #7749f8;
+  --modal-button-hover-color: #5f3dc4;
+  --background-main-color: #f8f8f8;
 }
 
 .container {
@@ -12,6 +17,7 @@
   align-items: center;
   width: 100%;
   height: 100%;
+  background-color: var(--background-main-color);
 }
 
 /* Navbar (GNB) */
@@ -25,9 +31,8 @@
   height: 70px;
   padding: 0 30px;
   background-color: #fff;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid var(--border-light-color);
   z-index: 1000;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .navbar .logo-container {
@@ -48,7 +53,7 @@
   font-size: 1rem;
   font-weight: 500;
   border-radius: 2px;
-  background-color: var(--primary-color);
+  background-color: var(--primary-hover-color);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   white-space: nowrap;
 }
@@ -79,7 +84,7 @@
 }
 
 .navbar .menu-list .menu-item a:hover {
-  color: var(--primary-color);
+  color: var(--primary-hover-color);
 }
 
 .navbar .menu-list .menu-item.active a {
@@ -126,14 +131,14 @@
   font-size: 0.8rem;
   font-weight: 500;
   border-radius: 20px;
-  background-color: var(--primary-color);
+  background-color: var(--primary-button-color);
   white-space: nowrap;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s;
 }
 
 .navbar .profile-container .account-creation-button:hover {
-  background-color: var(--primary-hover-color);
+  background-color: var(--primary-button-hover-color);
 }
 
 .modal-overlay {
@@ -170,8 +175,9 @@
   right: 20px;
   width: 500px;
   height: 400px;
+  border: 1px solid var(--border-light-color);
   border-radius: 8px;
-  background-color: #ededed;
+  background-color: var(--background-main-color);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   opacity: 0;
   z-index: 1000;
@@ -245,7 +251,8 @@
 .input-form-container .input-item .input-wrapper {
   border-radius: 6px;
   overflow: hidden;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--border-light-color);
 }
 
 .input-form-container .input-item .id-input {
@@ -268,9 +275,10 @@
   width: 250px;
   height: 35px;
   background-color: #fff;
+  border: 1px solid var(--border-light-color);
   border-radius: 6px;
   padding: 0 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .password-input-wrapper img {
@@ -307,14 +315,14 @@
   font-size: 1rem;
   font-weight: 500;
   border-radius: 4px;
-  background-color: var(--primary-color);
+  background-color: var(--primary-button-color);
   white-space: nowrap;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s;
 }
 
 .modal-account-create .modal-button-container button:hover {
-  background-color: var(--primary-hover-color);
+  background-color: var(--primary-button-hover-color);
 }
 
 .modal-warning {
@@ -410,8 +418,8 @@
   justify-content: flex-start;
   align-items: center;
   width: 250px;
-  height: fit-content;
-  border-radius: 8px;
+  height: 100vh;
+  /* border-radius: 8px; */
   background-color: var(--primary-color);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }

@@ -1,6 +1,9 @@
 const accountCreationButton = document.querySelector(
   ".account-creation-button"
 );
+const modalAccountCancelButton = document.querySelector(
+  ".modal-account-cancel-button"
+);
 const modalAccountCreateButton = document.querySelector(
   ".modal-account-create-button"
 );
@@ -53,6 +56,10 @@ const closeModalAccountCreate = () => {
     modalOverlay.style.display = "none";
   }, 300);
 };
+
+modalAccountCancelButton.addEventListener("click", () => {
+  closeModalAccountCreate();
+});
 
 // 계정 생성 버튼 클릭 시 input 정보 확인
 modalAccountCreateButton.addEventListener("click", () => {

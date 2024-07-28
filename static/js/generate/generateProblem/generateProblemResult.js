@@ -30,12 +30,7 @@ let promptProblemExplanation = document
 // 문제 및 해설 텍스트가 비어있을 경우 경고 메시지 출력
 recreateButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    if (
-      generatedProblem === "" &&
-      problemExplanation === "" &&
-      promptGeneratedProblem === "" &&
-      promptProblemExplanation === ""
-    ) {
+    if (promptGeneratedProblem === "" && promptProblemExplanation === "") {
       openModalWarningRecreate();
     } else {
       // 문제 및 해설 재생성 API 로직 추가해야함
