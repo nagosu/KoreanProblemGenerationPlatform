@@ -6,6 +6,16 @@ const underlineMenuItem = document.querySelectorAll(".underline-menu-item");
 
 const passageCreateButton = document.querySelector(".passage-create-button");
 
+const modalPassageUploadOverlay = document.querySelector(
+  ".modal-passage-upload-overlay"
+);
+const modalPassageUploadContent = document.querySelector(
+  ".modal-passage-upload-content"
+);
+const modalPassageUploadCloseButton = document.querySelector(
+  ".modal-passage-upload-close-button"
+);
+
 const modalUploadConfirmOverlay = document.querySelector(
   ".modal-upload-confirm-overlay"
 );
@@ -191,15 +201,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // 업로드 확인 모달창 열기
 function openUploadConfirmModal() {
-  if (
-    passageTypeMajor === "" ||
-    passageTypeMinor === "" ||
-    passageName === "" ||
-    passageInput === "" ||
-    passageFlowInput === ""
-  ) {
-    return;
-  }
   modalUploadConfirmOverlay.classList.remove("fade-out"); //  fade-out 클래스 제거
   modalUploadConfirmOverlay.style.display = "block";
   modalUploadConfirmContent.style.display = "flex";
@@ -245,3 +246,34 @@ document.addEventListener("input", (e) => {
     console.log("passageFlowInput :", passageFlowInput);
   }
 });
+
+function showPassageUploadModal() {
+  modalPassageUploadOverlay.classList.remove("fade-out"); //  기존에 fade-out 클래스가 있으면 제거
+  modalPassageUploadOverlay.style.display = "block";
+}
+
+function hidePassageUploadModal() {
+  modalPassageUploadOverlay.classList.add("fade-out"); // fade-out 클래스 추가
+  setTimeout(() => {
+    modalPassageUploadOverlay.style.display = "none";
+    modalPassageUploadOverlay.classList.remove("fade-out"); // fade-out 클래스 제거
+  }, 300);
+}
+
+modalPassageUploadCloseButton.addEventListener("click", () => {
+  hidePassageUploadModal();
+});
+
+// 지문 업로드 버튼 클릭 시
+function uploadPassage() {
+  if (
+    passageTypeMajor === "" ||
+    passageTypeMinor === "" ||
+    passageName === "" ||
+    passageInput === ""
+  ) {
+    showPassageUploadModal();
+  } else {
+    openUploadConfirmModal();
+  }
+}

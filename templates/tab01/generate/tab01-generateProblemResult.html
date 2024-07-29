@@ -174,12 +174,12 @@
                 <a
                   href="../type/tab01-typeProblem.html"
                   class="sidebar-menu-item"
-                  >지문</a
+                  >문제</a
                 >
                 <a
                   href="../type/tab01-typePassageMajor.html"
                   class="sidebar-menu-item"
-                  >문제</a
+                  >지문</a
                 >
               </ul>
             </div>
@@ -226,11 +226,15 @@
               </div>
               <!-- //문제 출력 -->
 
-              <!-- 수정 버튼 -->
+              <!-- 수정/복사 버튼 -->
               <div class="edit-button-container">
-                <button type="button" class="edit-button">수정</button>
+                <h3 class="gpt-title">GPT 입력창</h3>
+                <div class="button-wrapper">
+                  <button type="button" class="edit-button">수정</button>
+                  <button class="copy-button">복사</button>
+                </div>
               </div>
-              <!-- //수정 버튼 -->
+              <!-- //수정/복사 버튼 -->
             </div>
 
             <div class="prompt-container">
@@ -242,15 +246,20 @@
               ></textarea>
               <!-- //문제 프롬프트 -->
 
-              <!-- 문제 재생성 및 복사 버튼 -->
+              <!-- 문제 재생성 버튼 -->
               <div class="recreate-button-container">
-                <button class="recreate-button">다시 생성하기</button>
-                <button class="copy-button">복사</button>
+                <button class="recreate-button problem">다시 생성하기</button>
               </div>
-              <!-- //문제 재생성 및 복사 버튼 -->
+              <!-- //문제 재생성 버튼 -->
             </div>
           </div>
           <!-- //문제 생성 결과 -->
+
+          <!-- 타이틀 -->
+          <div class="main-content-header">
+            <h2 class="main-content-header-title">해설지 출력</h2>
+          </div>
+          <!-- //타이틀 -->
 
           <!-- 해설 생성 결과 -->
           <div class="problem-explanation-wrapper">
@@ -280,11 +289,15 @@
               </div>
               <!-- //해설지 출력 -->
 
-              <!-- 수정 버튼 -->
+              <!-- 수정/복사 버튼 -->
               <div class="edit-button-container">
-                <button type="button" class="edit-button">수정</button>
+                <h3 class="gpt-title">GPT 입력창</h3>
+                <div class="button-wrapper">
+                  <button type="button" class="edit-button">수정</button>
+                  <button class="copy-button">복사</button>
+                </div>
               </div>
-              <!-- //수정 버튼 -->
+              <!-- //수정/복사 버튼 -->
             </div>
             <div class="prompt-container">
               <!-- 해설 프롬프트 -->
@@ -295,12 +308,13 @@
               ></textarea>
               <!-- //해설 프롬프트 -->
 
-              <!-- 해설 재생성 및 복사 버튼 -->
+              <!-- 해설 재생성 버튼 -->
               <div class="recreate-button-container">
-                <button class="recreate-button">다시 생성하기</button>
-                <button class="copy-button">복사</button>
+                <button class="recreate-button explanation">
+                  다시 생성하기
+                </button>
               </div>
-              <!-- //해설 재생성 및 복사 버튼 -->
+              <!-- //해설 재생성 버튼 -->
             </div>
           </div>
           <!-- //해설 생성 결과 -->

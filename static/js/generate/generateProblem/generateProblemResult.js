@@ -30,16 +30,14 @@ let promptProblemExplanation = document
 // 문제 및 해설 텍스트가 비어있을 경우 경고 메시지 출력
 recreateButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    if (promptGeneratedProblem === "" && promptProblemExplanation === "") {
-      openModalWarningRecreate();
-    } else {
-      // 문제 및 해설 재생성 API 로직 추가해야함
-      console.log({
-        generatedProblem,
-        promptGeneratedProblem,
-        problemExplanation,
-        promptProblemExplanation,
-      });
+    if (button.classList.contains("problem")) {
+      if (generatedProblem === "" || promptGeneratedProblem === "") {
+        openModalWarningRecreate();
+      }
+    } else if (button.classList.contains("explanation")) {
+      if (problemExplanation === "" || promptProblemExplanation === "") {
+        openModalWarningRecreate();
+      }
     }
   });
 });

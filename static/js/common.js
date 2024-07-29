@@ -12,6 +12,10 @@ const modalAccountCreate = document.querySelector(".modal-account-create");
 const cancelIcon = document.querySelector(".cancel-icon");
 const passwordInput = document.querySelector(".password-input");
 const passwordView = document.querySelector(".password-view");
+const passwordConfirmInput = document.querySelector(
+  "#creation-password-confirm"
+);
+const passwordConfirmView = passwordConfirmInput.nextElementSibling;
 const modalWarning = document.querySelector(".modal-warning");
 const modalMessage = document.querySelector(".modal-message");
 const modalCloseButton = document.querySelector(".modal-close-button");
@@ -113,7 +117,7 @@ const closeModalWarning = () => {
   }, 500);
 };
 
-// 눈 모양 아이콘 클릭 시 패스워드 보이기/숨기기
+// 비밀번호 눈 모양 아이콘 클릭 시 패스워드 보이기/숨기기
 passwordView.addEventListener("click", () => {
   if (passwordInput.type === "password") {
     passwordInput.type = "text";
@@ -123,5 +127,19 @@ passwordView.addEventListener("click", () => {
     passwordInput.type = "password";
     passwordView.src = "../../../static/images/icon/svg/View_hide_fill.svg";
     passwordView.setAttribute("draggable", "false");
+  }
+});
+
+// 비밀번호 확인 눈 모양 아이콘 클릭 시 패스워드 보이기/숨기기
+passwordConfirmView.addEventListener("click", () => {
+  if (passwordConfirmInput.type === "password") {
+    passwordConfirmInput.type = "text";
+    passwordConfirmView.src = "../../../static/images/icon/svg/View_fill.svg";
+    passwordConfirmView.setAttribute("draggable", "false");
+  } else {
+    passwordConfirmInput.type = "password";
+    passwordConfirmView.src =
+      "../../../static/images/icon/svg/View_hide_fill.svg";
+    passwordConfirmView.setAttribute("draggable", "false");
   }
 });

@@ -50,11 +50,16 @@ function showToastDeleteDone() {
   }, 2300);
 }
 
-// 전체 선택 하기
-function selectAll() {
+// 전체 선택/선택해제 하기
+function toggleSelectAll() {
+  const allChecked = Array.from(checkboxes).every(
+    (checkbox) => checkbox.checked
+  );
+
   checkboxes.forEach((checkbox) => {
-    checkbox.checked = true;
+    checkbox.checked = !allChecked;
   });
+
   updateDeleteButtonState(); // 삭제 버튼 상태 업데이트
 }
 

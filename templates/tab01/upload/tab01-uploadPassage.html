@@ -174,12 +174,12 @@
                 <a
                   href="../type/tab01-typeProblem.html"
                   class="sidebar-menu-item"
-                  >지문</a
+                  >문제</a
                 >
                 <a
                   href="../type/tab01-typePassageMajor.html"
                   class="sidebar-menu-item"
-                  >문제</a
+                  >지문</a
                 >
               </ul>
             </div>
@@ -292,6 +292,7 @@
 
           <!-- 지문 입력란 -->
           <div class="passage-input-container">
+            <h3 class="passage-input-title">지문 입력칸 (필수)</h3>
             <div
               id="editableDiv"
               class="editable"
@@ -303,7 +304,7 @@
 
           <!-- 지문의 흐름 입력칸 -->
           <div class="passage-flow-input-container">
-            <h3 class="passage-input-title">지문의 흐름 입력칸</h3>
+            <h3 class="passage-input-title">지문의 흐름 입력칸 (선택)</h3>
             <textarea
               name="passageFlowInput"
               class="passage-flow-input"
@@ -314,10 +315,7 @@
 
           <!-- 지문 업로드 버튼 -->
           <div class="passage-create-button-container">
-            <button
-              class="passage-create-button"
-              onclick="openUploadConfirmModal()"
-            >
+            <button class="passage-create-button" onclick="uploadPassage()">
               생성
             </button>
           </div>
@@ -359,6 +357,21 @@
       <!-- //업로드 완료 토스트 메시지 -->
     </div>
     <!-- //모달 -->
+
+    <!-- 지문 업로드 경고 모달 -->
+    <div class="modal-passage-upload-overlay">
+      <div class="modal-passage-upload-content">
+        <div class="modal-passage-upload-container">
+          <span class="modal-passage-upload-message"
+            >필수 항목을 기입해주세요.</span
+          >
+        </div>
+        <button type="button" class="modal-passage-upload-close-button">
+          확인
+        </button>
+      </div>
+    </div>
+    <!-- //지문 업로드 경고 모달 -->
 
     <!-- 스크립트 -->
     <script src="../../../static/js/common.js"></script>
