@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-  gap: 20px;
+  gap: 10px;
 }
 
 .result-wrapper .result-passage-container,
@@ -36,10 +36,21 @@
 
 .main-content .edit-button-container {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
-  gap: 5px;
+}
+
+.main-content .edit-button-container h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #111;
+}
+
+.main-content .edit-button-container .button-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .main-content .edit-button-container button {

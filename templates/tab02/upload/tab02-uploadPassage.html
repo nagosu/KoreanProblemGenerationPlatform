@@ -250,45 +250,48 @@
 
           <!-- 문제 유형 선택 -->
           <div class="problem-type-container">
-            <div class="dropdown-container">
-              <div class="dropdown dropdown-major">
-                <div class="selected">
-                  지문 유형 (대)
-                  <img
-                    src="../../../static/images/icon/svg/Arrow_drop_down.svg"
-                    alt="드롭다운 화살표"
-                    class="triangle"
-                  />
+            <h3 class="passage-input-title">지문 유형 선택 (필수)</h3>
+            <div class="passage-category-container">
+              <div class="dropdown-container">
+                <div class="dropdown dropdown-major">
+                  <div class="selected">
+                    지문 유형 (대)
+                    <img
+                      src="../../../static/images/icon/svg/Arrow_drop_down.svg"
+                      alt="드롭다운 화살표"
+                      class="triangle"
+                    />
+                  </div>
+                  <div class="dropdown-menu">
+                    <div class="dropdown-item" data-value="평가원">평가원</div>
+                    <div class="dropdown-item" data-value="교육청">교육청</div>
+                    <div class="dropdown-item" data-value="사관학교">
+                      사관학교
+                    </div>
+                  </div>
                 </div>
-                <div class="dropdown-menu">
-                  <div class="dropdown-item" data-value="평가원">평가원</div>
-                  <div class="dropdown-item" data-value="교육청">교육청</div>
-                  <div class="dropdown-item" data-value="사관학교">
-                    사관학교
+                <div class="dropdown dropdown-minor">
+                  <div class="selected">
+                    지문 유형 (소)
+                    <img
+                      src="../../../static/images/icon/svg/Arrow_drop_down.svg"
+                      alt="드롭다운 화살표"
+                      class="triangle"
+                    />
+                  </div>
+                  <div class="dropdown-menu">
+                    <div class="dropdown-item" data-value="인문">인문</div>
+                    <div class="dropdown-item" data-value="예술">예술</div>
+                    <div class="dropdown-item" data-value="과학">과학</div>
+                    <div class="dropdown-item" data-value="사회">사회</div>
+                    <div class="dropdown-item" data-value="경제">경제</div>
                   </div>
                 </div>
               </div>
-              <div class="dropdown dropdown-minor">
-                <div class="selected">
-                  지문 유형 (소)
-                  <img
-                    src="../../../static/images/icon/svg/Arrow_drop_down.svg"
-                    alt="드롭다운 화살표"
-                    class="triangle"
-                  />
-                </div>
-                <div class="dropdown-menu">
-                  <div class="dropdown-item" data-value="인문">인문</div>
-                  <div class="dropdown-item" data-value="예술">예술</div>
-                  <div class="dropdown-item" data-value="과학">과학</div>
-                  <div class="dropdown-item" data-value="사회">사회</div>
-                  <div class="dropdown-item" data-value="경제">경제</div>
-                </div>
+              <div class="passage-name-container">
+                <span class="passage-name-title">지문 이름 (필수)</span>
+                <input type="text" class="passage-name-input" />
               </div>
-            </div>
-            <div class="passage-name-container">
-              <span class="passage-name-title">지문 이름</span>
-              <input type="text" class="passage-name-input" />
             </div>
           </div>
           <!-- //문제 유형 선택 -->

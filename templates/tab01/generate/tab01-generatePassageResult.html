@@ -284,15 +284,18 @@
 
               <!-- 수정 버튼 -->
               <div class="edit-button-container">
-                <button
-                  type="button"
-                  class="create-problem-button"
-                  onclick="createProblem()"
-                >
-                  위의 지문으로 문제 생성하기
-                </button>
-                <button type="button" class="edit-button">수정</button>
-                <button type="button" class="copy-button">복사</button>
+                <h3 class="gpt-title">GPT 입력창</h3>
+                <div class="button-container">
+                  <button
+                    type="button"
+                    class="create-problem-button"
+                    onclick="createProblem()"
+                  >
+                    위의 지문으로 문제 생성하기
+                  </button>
+                  <button type="button" class="edit-button">수정</button>
+                  <button type="button" class="copy-button">복사</button>
+                </div>
               </div>
               <!-- //수정 버튼 -->
             </div>
@@ -320,9 +323,7 @@
       <div class="modal-warning-overlay">
         <div class="modal-warning-content">
           <div class="modal-warning-message-container">
-            <span class="modal-warning-message"
-              >추가 명령어를 기입해주세요.</span
-            >
+            <span class="modal-warning-message">필수 항목을 기입해주세요.</span>
           </div>
           <button type="button" class="modal-warning-close-button">확인</button>
         </div>

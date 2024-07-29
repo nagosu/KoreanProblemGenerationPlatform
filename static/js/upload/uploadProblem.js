@@ -19,6 +19,12 @@ const modalUploadConfirmButton = document.querySelector(
 );
 const toastUploadDone = document.querySelector(".toast-upload-done");
 
+const modalWarningOverlay = document.querySelector(".modal-warning-overlay");
+const modalWarningContent = document.querySelector(".modal-warning-content");
+const modalWarningCloseButton = document.querySelector(
+  ".modal-warning-close-button"
+);
+
 let passageInput = ""; // 입력한 텍스트 저장하는 변수
 
 // 문제 및 정/오답 사유를 저장하는 배열
@@ -256,12 +262,14 @@ addProblemButton.addEventListener("click", () => {
   }
 });
 
+// 업로드 확인 모달 띄우기
 function openUploadConfirmModal() {
   modalUploadConfirmOverlay.classList.remove("fade-out"); //  fade-out 클래스 제거
   modalUploadConfirmOverlay.style.display = "block";
   modalUploadConfirmContent.style.display = "flex";
 }
 
+// 업로드 확인 모달 닫기
 function closeUploadConfirmModal() {
   modalUploadConfirmOverlay.classList.add("fade-out"); // fade-out 클래스 추가
   setTimeout(() => {
@@ -270,6 +278,7 @@ function closeUploadConfirmModal() {
   }, 300);
 }
 
+// 토스트 메시지 띄우기
 function showToastUploadDone() {
   modalUploadConfirmContent.style.display = "none"; // 모달 컨텐츠 숨김
   toastUploadDone.style.display = "flex"; // 토스트 메시지 보여줌
@@ -374,3 +383,29 @@ document.addEventListener("click", function (event) {
     dropdownMenu.classList.remove("active");
   }
 });
+
+// 경고 모달 띄우기
+function openModalWarningUpload() {
+  modalWarningOverlay.style.display = "block";
+}
+
+// 경고 모달 닫기
+function closeModalWarningUpload() {
+  modalWarningOverlay.classList.add("fade-out"); // fade-out 클래스 추가
+  setTimeout(() => {
+    modalWarningOverlay.style.display = "none";
+    modalWarningOverlay.classList.remove("fade-out"); // fade-out 클래스 제거
+  }, 300);
+}
+
+function uploadConfirm() {
+  if (
+    passageInput.trim() === "" ||
+    problems[0].problemInput.trim() === "" ||
+    problems[0].problemType.trim() === ""
+  ) {
+    openModalWarningUpload();
+  } else {
+    openUploadConfirmModal();
+  }
+}

@@ -321,7 +321,7 @@
             <button
               type="button"
               class="upload-button"
-              onclick="openUploadConfirmModal()"
+              onclick="uploadConfirm()"
             >
               업로드
             </button>
@@ -333,9 +333,8 @@
       <!-- //컨텐츠 -->
     </div>
 
-    <!-- 모달 -->
+    <!-- 업로드 확인 모달 -->
     <div class="modal-upload-confirm-overlay">
-      <!-- 업로드 확인 모달 -->
       <div class="modal-upload-confirm-content">
         <div class="modal-upload-confirm-message-container">
           <span class="modal-upload-confirm-message">업로드 하시겠습니까?</span>
@@ -357,13 +356,29 @@
           </button>
         </div>
       </div>
-      <!-- //업로드 확인 모달 -->
 
       <!-- 업로드 완료 토스트 메시지 -->
       <div class="toast-upload-done">성공적으로<br />업로드 되었습니다.</div>
       <!-- //업로드 완료 토스트 메시지 -->
     </div>
-    <!-- //모달 -->
+    <!-- //업로드 확인 모달 -->
+
+    <!-- 경고 모달 -->
+    <div class="modal-warning-overlay">
+      <div class="modal-warning-content">
+        <div class="modal-warning-message-container">
+          <span class="modal-warning-message">필수 항목을 기입해주세요.</span>
+        </div>
+        <button
+          type="button"
+          class="modal-warning-close-button"
+          onclick="closeModalWarningUpload()"
+        >
+          확인
+        </button>
+      </div>
+    </div>
+    <!-- //경고 모달 -->
 
     <!-- 스크립트 -->
     <script src="../../../static/js/common.js"></script>

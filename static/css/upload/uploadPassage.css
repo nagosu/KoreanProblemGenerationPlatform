@@ -1,6 +1,7 @@
 .main-content .problem-type-container {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: flex-start;
   width: 100%;
   gap: 20px;
@@ -11,6 +12,13 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   margin-top: 10px;
   padding: 15px;
+}
+
+.main-content .problem-type-container .passage-category-container {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .dropdown-container {
@@ -92,7 +100,7 @@
 
 .passage-name-container span {
   font-size: 1.2rem;
-  font-weight: 500;
+  font-weight: 600;
   color: #111;
   white-space: nowrap;
 }
