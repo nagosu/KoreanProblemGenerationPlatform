@@ -33,15 +33,9 @@ loginButton.addEventListener("click", () => {
   } else if (!password) {
     // 비밀번호를 입력하지 않았을 때
     showModal("비밀번호를 입력하세요.");
-  } else if (userId !== testId) {
-    // 아이디가 일치하지 않을 때
-    showModal("아이디 정보가 일치하지 않습니다.");
-  } else if (password !== testPassword) {
-    // 비밀번호가 일치하지 않을 때
-    showModal("비밀번호 정보가 일치하지 않습니다.");
   } else {
-    // 로그인 성공 시 페이지 이동
-    window.location.href = "../tab01/generate/tab01-generateProblem.html";
+    // 로그인 API 호출
+    login(userId, password);
   }
 });
 
@@ -72,4 +66,41 @@ function closeModal() {
   setTimeout(() => {
     modal.style.display = "none";
   }, 500); // 애니메이션 시간 후에 모달 숨기기
+}
+
+// 로그인 API
+async function login(userId, password) {
+  // const url = "/login"; // 로그인 API 주소
+
+  try {
+    // const response = await fetch(url, {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({ userId, password }),
+    // });
+    // const data = await response.json();
+    // if (response.ok) {
+    //   // 로그인 성공 시 페이지 이동
+    //   window.location.href = "../tab01/generate/tab01-generateProblem.html";
+    // } else {
+    //   // 로그인 실패 시 에러 처리
+    // }
+
+    // 테스트용 코드
+    if (userId === testId && password === testPassword) {
+      console.log("로그인 성공", {
+        userId,
+        password,
+      });
+      window.location.href = "../tab01/generate/tab01-generateProblem.html";
+    } else if (userId !== testId) {
+      showModal("아이디 정보가 일치하지 않습니다.");
+    } else if (password !== testPassword) {
+      showModal("비밀번호 정보가 일치하지 않습니다.");
+    }
+  } catch (e) {
+    console.error(e);
+  }
 }
