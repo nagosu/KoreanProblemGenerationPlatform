@@ -6,9 +6,6 @@ const modalContent = document.querySelector(".modal-content");
 const modalMessage = document.querySelector(".modal-message");
 const closeButton = document.querySelector(".close-button");
 
-let testId = "test123"; // 테스트용 아이디
-let testPassword = "test123"; // 테스트용 비밀번호
-
 // 눈 모양 아이콘 클릭 시 패스워드 보이기/숨기기
 passwordView.addEventListener("click", () => {
   if (passwordInput.type === "password") {
@@ -72,6 +69,11 @@ function closeModal() {
 async function login(userId, password) {
   // const url = "/login"; // 로그인 API 주소
 
+  const dummyLoginData = {
+    userId: "test123",
+    password: "test123",
+  };
+
   try {
     // const response = await fetch(url, {
     //   method: "POST",
@@ -89,15 +91,18 @@ async function login(userId, password) {
     // }
 
     // 테스트용 코드
-    if (userId === testId && password === testPassword) {
+    if (
+      userId === dummyLoginData.userId &&
+      password === dummyLoginData.password
+    ) {
       console.log("로그인 성공", {
         userId,
         password,
       });
       window.location.href = "../tab01/generate/tab01-generateProblem.html";
-    } else if (userId !== testId) {
+    } else if (userId !== dummyLoginData.userId) {
       showModal("아이디 정보가 일치하지 않습니다.");
-    } else if (password !== testPassword) {
+    } else if (password !== dummyLoginData.password) {
       showModal("비밀번호 정보가 일치하지 않습니다.");
     }
   } catch (e) {
