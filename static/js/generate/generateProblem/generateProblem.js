@@ -10,6 +10,7 @@ const modalConfirmCloseButton = document.querySelector(
 
 let problemType = ""; // 선택한 문제 유형을 저장할 변수
 let passageInput = ""; // 입력한 텍스트 저장하는 변수
+let tab = ""; // 현재 탭을 저장하는 변수
 
 problemCreateButton.addEventListener("click", () => {
   // 문제 생성 버튼 클릭 시
@@ -21,13 +22,33 @@ problemCreateButton.addEventListener("click", () => {
     let resultPageUrl = "";
 
     if (currentUrl.includes("tab01-generateProblem.html")) {
+      // 현재 페이지가 문학 탭일 경우
+      tab = "문학";
       resultPageUrl = "tab01-generateProblemResult.html";
     } else if (currentUrl.includes("tab02-generateProblem.html")) {
+      // 현재 페이지가 비문학 탭일 경우
+      tab = "비문학";
       resultPageUrl = "tab02-generateProblemResult.html";
     }
 
-    // 문제 생성 api 로직 추가해야함
-    window.location.href = resultPageUrl;
+    // 문제 생성 API 호출
+    generateProblem(tab, problemType, passageInput)
+      .then((response) => {
+        // 세션 스토리지에 문제 생성 결과 저장
+        sessionStorage.setItem("tab", response.tab);
+        sessionStorage.setItem("problemType", response.problemType);
+        sessionStorage.setItem("passageInput", response.passageInput);
+        sessionStorage.setItem("generatedProblem", response.generatedProblem);
+        sessionStorage.setItem(
+          "problemExplanation",
+          response.problemExplanation
+        );
+
+        window.location.href = resultPageUrl; // 결과 페이지로 이동
+      })
+      .catch((e) => {
+        console.error(e);
+      });
   }
 });
 
@@ -175,10 +196,46 @@ function updatePlaceholder() {
   }
 }
 
+// 텍스트 업데이트
 function updatePassageInput() {
   const div = document.getElementById("editableDiv");
   passageInput = div.innerHTML;
   console.log("passageInput: ", passageInput);
+}
+
+async function generateProblem(tab, problemType, passageInput) {
+  // const url = "/"; // 문제 생성 API 주소
+
+  const dummyResponseData = {
+    tab: tab,
+    problemType: problemType,
+    passageInput: passageInput,
+    generatedProblem:
+      "1. 윗글을 참고할 때, ㉠의 이유로 적절하지 않은 것은?<br />① 조선에서 서양 학문을 정책적으로 배척했기 때문이다.<br />② 전래된 서양 의학이 내용 면에서 불충분했기 때문이다.<br />③ 당대 의원들이 서양 의학의 한계를 지적했기 때문이다.<br />④ 서양 해부학이 조선의 윤리 의식에 위배되었기 때문이다.<br />⑤ 서양 의학이 천문 지식에 비해 충격적이지 않았기 때문이다.<br /><br />2. 윗글을 참고할 때, ㉠의 이유로 적절하지 않은 것은?<br />① 조선에서 서양 학문을 정책적으로 배척했기 때문이다.<br />② 전래된 서양 의학이 내용 면에서 불충분했기 때문이다.<br />③ 당대 의원들이 서양 의학의 한계를 지적했기 때문이다.<br />④ 서양 해부학이 조선의 윤리 의식에 위배되었기 때문이다.<br />⑤ 서양 의학이 천문 지식에 비해 충격적이지 않았기 때문이다.<br /><br />3. 윗글을 참고할 때, ㉠의 이유로 적절하지 않은 것은?<br />① 조선에서 서양 학문을 정책적으로 배척했기 때문이다.<br />② 전래된 서양 의학이 내용 면에서 불충분했기 때문이다.<br />③ 당대 의원들이 서양 의학의 한계를 지적했기 때문이다.<br />④ 서양 해부학이 조선의 윤리 의식에 위배되었기 때문이다.<br />⑤ 서양 의학이 천문 지식에 비해 충격적이지 않았기 때문이다.<br />",
+    problemExplanation:
+      "1번은 -- 이유로 오답이다.<br />2번은 -- 때문에 오답이다.<br />3번은 -- 때문에 정답이다.<br />4번은 -- 때문에 오답이다.<br />5번은 -- 때문에 오답이다.<br /><br />1번은 -- 이유로 오답이다.<br />2번은 -- 때문에 오답이다.<br />3번은 -- 때문에 정답이다.<br />4번은 -- 때문에 오답이다.<br />5번은 -- 때문에 오답이다.<br /><br />1번은 -- 이유로 오답이다.<br />2번은 -- 때문에 오답이다.<br />3번은 -- 때문에 정답이다.<br />4번은 -- 때문에 오답이다.<br />5번은 -- 때문에 오답이다.<br />",
+  };
+  try {
+    // 실제 API 호출 (수정 필요)
+    // const response = await fetch(url, {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({
+    //     tab,
+    //     problemType,
+    //     passageInput,
+    //   }),
+    // });
+    // const data = await response.json();
+
+    const data = dummyResponseData; // 테스트용 더미 데이터
+    console.log(data);
+    return data;
+  } catch (e) {
+    console.error(e);
+  }
 }
 
 // DOMContentLoaded 이벤트 발생 시 실행
