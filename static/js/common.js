@@ -20,6 +20,10 @@ const modalWarning = document.querySelector(".modal-warning");
 const modalMessage = document.querySelector(".modal-message");
 const modalCloseButton = document.querySelector(".modal-close-button");
 
+let userId = ""; // 일반유저 아이디
+let password = ""; // 일반유저 비밀번호
+let passwordConfirm = ""; // 일반유저 비밀번호 확인
+
 // 계정 생성 버튼 클릭 이벤트
 accountCreationButton.addEventListener("click", () => {
   openModalAccountCreate();
@@ -67,22 +71,20 @@ modalAccountCancelButton.addEventListener("click", () => {
 
 // 계정 생성 버튼 클릭 시 input 정보 확인
 modalAccountCreateButton.addEventListener("click", () => {
-  const userId = document.getElementById("creation-id").value;
-  const password = document.getElementById("creation-password").value;
-  const passwordConfirm = document.getElementById(
-    "creation-password-confirm"
-  ).value;
+  userId = document.getElementById("creation-id").value;
+  password = document.getElementById("creation-password").value;
+  passwordConfirm = document.getElementById("creation-password-confirm").value;
 
   const userIdPattern = /^[a-zA-Z0-9]{6,12}$/; // 6~12자의 영문 대소문자와 숫자
   const passwordPattern = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\W_]).{8,}$/; // 8자 이상의 영문 대소문자, 숫자, 특수문자 조합
 
-  if (!userId) {
+  if (userId === "") {
     // 아이디를 입력하지 않았을 때
     openModalWarning("아이디를 입력해주세요.");
   } else if (!userIdPattern.test(userId)) {
     // 아이디 형식이 맞지 않을 때
     openModalWarning("아이디 형식을 확인해주세요.");
-  } else if (!password) {
+  } else if (password === "") {
     // 비밀번호를 입력하지 않았을 때
     openModalWarning("비밀번호를 입력해주세요.");
   } else if (!passwordPattern.test(password)) {
@@ -92,9 +94,8 @@ modalAccountCreateButton.addEventListener("click", () => {
     // 비밀번호와 비밀번호 확인이 맞지 않을 때
     openModalWarning("비밀번호가 일치하지 않습니다.");
   } else {
-    // 계정 생성 API 연동해야함
-    closeModalAccountCreate();
-    window.location.href = "";
+    // 모든 조건을 만족할 때
+    createUser(userId, password); // 일반유저 계정 생성 API 호출
   }
 });
 
@@ -143,3 +144,36 @@ passwordConfirmView.addEventListener("click", () => {
     passwordConfirmView.setAttribute("draggable", "false");
   }
 });
+
+// 일반유저 계정 생성 API
+async function createUser(userId, password) {
+  // const url = "/createUser";  // API 주소
+
+  try {
+    // const response = await fetch(url, {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({
+    //     userId,
+    //     password,
+    //   }),
+    // });
+    // const data = await response.json();
+
+    // if (response.ok) {
+    //   closeModalAccountCreate();
+    //   window.location.href = "";
+    // }
+
+    console.log("일반유저 계정 생성 성공", {
+      userId,
+      password,
+    });
+    closeModalAccountCreate(); // 모달창 닫기
+    window.location.href = ""; // 페이지 새로고침
+  } catch (e) {
+    console.error(e);
+  }
+}
