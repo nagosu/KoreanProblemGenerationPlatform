@@ -147,8 +147,6 @@ function addDropdownEventListener(problemContainer, index) {
   const dropdownItems = dropdown.querySelectorAll(".dropdown-item");
   const selected = dropdown.querySelector(".selected");
 
-  console.log("dropdown", dropdown);
-
   dropdownItems.forEach((item) => {
     item.addEventListener("click", (e) => {
       e.stopPropagation();
@@ -398,6 +396,7 @@ function closeModalWarningUpload() {
   }, 300);
 }
 
+// 업로드 버튼 클릭 시 API 호출
 function uploadConfirm() {
   if (
     passageInput.trim() === "" ||
@@ -407,5 +406,32 @@ function uploadConfirm() {
     openModalWarningUpload();
   } else {
     openUploadConfirmModal();
+  }
+}
+
+// 문제 업로드 API
+async function uploadProblem() {
+  // const url = "/upload/problem"; // 문제 업로드 API 주소
+
+  try {
+    // const response = await fetch(url, {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({
+    //     passage: passageInput,
+    //     problems: problems,
+    //   }),
+    // });
+    // const data = await response.json();
+    const data = {
+      passageInput: passageInput,
+      problems: problems,
+    };
+    console.log("문제 업로드 성공", data);
+    showToastUploadDone(); // 토스트 메시지 띄우기
+  } catch (e) {
+    console.error(e);
   }
 }
