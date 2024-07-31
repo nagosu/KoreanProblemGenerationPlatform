@@ -221,6 +221,7 @@ passageCreateButton.addEventListener("click", () => {
         sessionStorage.setItem("passageTypeMinor", response.passageTypeMinor);
         sessionStorage.setItem("selectedPassages", response.selectedPassages);
         sessionStorage.setItem("passageFlowInput", response.passageFlowInput);
+        sessionStorage.setItem("generatedPassage", response.generatedPassage);
 
         window.location.href = resultPageUrl;
       })

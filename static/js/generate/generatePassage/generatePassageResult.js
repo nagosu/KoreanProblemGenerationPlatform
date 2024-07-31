@@ -19,12 +19,14 @@ const toastMessageContainer = document.querySelector(
   ".toast-message-container"
 );
 
-let passageInput = ""; // 입력한 텍스트 저장하는 변수
+let tab = ""; // 현재 탭을 저장할 변수
+let passageTypeMajor = ""; // 지문 유형(대)을 저장할 변수
+let passageTypeMinor = ""; // 지문 유형(소)을 저장할 변수
+let selectedPassages = []; // 선택된 항목을 저장할 배열
+let passageFlowInput = ""; // 지문 흐름을 저장할 변수
+let generatedPassage = ""; // 결과물 텍스트 변수 저장
 
 // 결과물 텍스트 변수 저장
-let generatedPassage = document.querySelector(
-  ".result-wrapper .editable"
-).innerText;
 let promptGeneratedPassage = document
   .querySelector(".result-wrapper .prompt-area")
   .value.trim();
@@ -51,15 +53,27 @@ function copyToClipboard(text) {
   document.body.removeChild(textarea);
 }
 
+// 지문 재생성 버튼 클릭 시
 recreateButton.addEventListener("click", () => {
   if (generatedPassage === "" || promptGeneratedPassage === "") {
     openModalWarningRecreate();
   } else {
-    // 결과물 재생성 API 로직 추가해야함
-    console.log({
+    recreatePassage(
+      tab,
+      passageTypeMajor,
+      passageTypeMinor,
+      selectedPassages,
+      passageFlowInput,
       generatedPassage,
-      promptGeneratedPassage,
-    });
+      promptGeneratedPassage
+    )
+      .then((response) => {
+        document.querySelector(".result-wrapper .editable").innerText =
+          response.newGeneratedPassage;
+      })
+      .catch((e) => {
+        console.error(e);
+      });
   }
 });
 
@@ -141,7 +155,7 @@ function applyUnderline(underlineText) {
   range.deleteContents();
   range.insertNode(span);
 
-  updatePassageInput(); // 밑줄 적용 후 텍스트 업데이트
+  updateGeneratedPassage(); // 밑줄 적용 후 텍스트 업데이트
 }
 
 // 밑줄 삭제 버튼 클릭 시 밑줄 제거
@@ -173,16 +187,16 @@ function removeUnderline() {
     parent.removeChild(parentElement);
     selection.removeAllRanges();
 
-    updatePassageInput(); // 밑줄 제거 후 텍스트 업데이트
+    updateGeneratedPassage(); // 밑줄 제거 후 텍스트 업데이트
   } else {
     alert("선택한 텍스트에 밑줄이 없습니다.");
   }
 }
 
-function updatePassageInput() {
+function updateGeneratedPassage() {
   const div = document.getElementById("editableDiv");
-  passageInput = div.innerHTML;
-  console.log("passageInput: ", passageInput);
+  generatedPassage = div.innerHTML;
+  console.log("generatedPassage: ", generatedPassage);
 }
 
 // DOMContentLoaded 이벤트 발생 시 실행
@@ -203,14 +217,95 @@ document.addEventListener("DOMContentLoaded", () => {
   // 텍스트 입력 시 Placeholder 업데이트
   editableDiv.addEventListener("input", () => {
     updatePlaceholder();
-    updatePassageInput();
+    updateGeneratedPassage();
   });
 
   // 초기 Placeholder 업데이트
   updatePlaceholder();
 });
 
+// 이전 페이지에서 가져온 데이터로 변수 초기화
+function initResultData() {
+  tab = sessionStorage.getItem("tab");
+  passageTypeMajor = sessionStorage.getItem("passageTypeMajor");
+  passageTypeMinor = sessionStorage.getItem("passageTypeMinor");
+  selectedPassages = sessionStorage.getItem("selectedPassages");
+  passageFlowInput = sessionStorage.getItem("passageFlowInput");
+  generatedPassage = sessionStorage.getItem("generatedPassage");
+
+  document.querySelector(".result-wrapper .editable").innerText =
+    generatedPassage;
+}
+
+// 위의 지문으로 문제 생성하기 버튼 클릭 시
+function createProblem() {
+  const editableDivContent = document.querySelector(
+    ".result-wrapper .editable"
+  ).innerHTML;
+  const encodedContent = encodeURIComponent(editableDivContent); // URL 인코딩
+
+  // 현재 페이지의 URL 확인하여 결과 페이지 결정
+  const currentUrl = window.location.href;
+  let resultPageUrl = "";
+
+  if (currentUrl.includes("tab01-generatePassageResult.html")) {
+    // 현재 탭이 문학인 경우
+    resultPageUrl = `../../../templates/tab01/generate/tab01-generateProblem.html?generatedPassage=${encodedContent}`;
+  } else if (currentUrl.includes("tab02-generatePassageResult.html")) {
+    // 현재 탭이 비문학인 경우
+    resultPageUrl = `../../../templates/tab02/generate/tab02-generateProblem.html?generatedPassage=${encodedContent}`;
+  }
+
+  window.location.href = resultPageUrl;
+}
+
+// 지문 재생성 API
+async function recreatePassage(
+  tab,
+  passageTypeMajor,
+  passageTypeMinor,
+  selectedPassages,
+  passageFlowInput,
+  generatedPassage,
+  promptGeneratedPassage
+) {
+  // const url = "/recreate/passage"; //  지문 재생성 API 주소
+
+  const dummyResponseData = {
+    newGeneratedPassage:
+      "단속 법규는 특정 행위를 금지하거나 제한하는 규정을 의미한다.\n예를 들어, 공인 중개사가 자신이 중개한 부동산을 직접 구매하는 것을 금지하는 규정은 단속 법규에 속한다.\n만약 ㉠이 해당 규정을 위반하여 공인 중개사와 매도인이 체결한 계약이 있다면, 공인 중개사에게는\n과태료가 부과될 수 있으나, 계약 자체는 여전히 법적으로 유효하다.\n\n단속 법규는 특정 행위를 금지하거나 제한하는 규정을 의미한다.\n예를 들어, 공인 중개사가 자신이 중개한 부동산을 직접 구매하는 것을 금지하는 규정은 단속 법규에 속한다.\n만약 ㉠이 해당 규정을 위반하여 공인 중개사와 매도인이 체결한 계약이 있다면, 공인 중개사에게는\n과태료가 부과될 수 있으나, 계약 자체는 여전히 법적으로 유효하다.\n\n단속 법규는 특정 행위를 금지하거나 제한하는 규정을 의미한다.\n예를 들어, 공인 중개사가 자신이 중개한 부동산을 직접 구매하는 것을 금지하는 규정은 단속 법규에 속한다.\n만약 ㉠이 해당 규정을 위반하여 공인 중개사와 매도인이 체결한 계약이 있다면, 공인 중개사에게는\n과태료가 부과될 수 있으나, 계약 자체는 여전히 법적으로 유효하다.\n\n단속 법규는 특정 행위를 금지하거나 제한하는 규정을 의미한다.\n예를 들어, 공인 중개사가 자신이 중개한 부동산을 직접 구매하는 것을 금지하는 규정은 단속 법규에 속한다.\n만약 ㉠이 해당 규정을 위반하여 공인 중개사와 매도인이 체결한 계약이 있다면, 공인 중개사에게는\n과태료가 부과될 수 있으나, 계약 자체는 여전히 법적으로 유효하다.\n",
+  };
+
+  try {
+    // const response = await fetch(url, {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({
+    //     tab,
+    //     passageTypeMajor,
+    //     passageTypeMinor,
+    //     selectedPassages,
+    //     passageFlowInput,
+    //     generatedPassage,
+    //     promptGeneratedPassage,
+    //   }),
+    // });
+    // const data = await response.json();
+
+    const data = dummyResponseData;
+    console.log(data);
+    return data;
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+// DOMContentLoaded 이벤트 발생 시 실행
 document.addEventListener("DOMContentLoaded", () => {
+  initResultData(); // 이전 페이지에서 가져온 데이터로 변수 초기화
+
   // 결과물 수정 버튼 클릭 시
   editButton.addEventListener("click", (e) => {
     const editableDiv = e.target
@@ -235,22 +330,3 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
-
-function createProblem() {
-  const editableDivContent = document.querySelector(
-    ".result-wrapper .editable"
-  ).innerHTML;
-  const encodedContent = encodeURIComponent(editableDivContent); // URL 인코딩
-
-  // 현재 페이지의 URL 확인하여 결과 페이지 결정
-  const currentUrl = window.location.href;
-  let resultPageUrl = "";
-
-  if (currentUrl.includes("tab01-generatePassageResult.html")) {
-    resultPageUrl = `../../../templates/tab01/generate/tab01-generateProblem.html?generatedPassage=${encodedContent}`;
-  } else if (currentUrl.includes("tab02-generatePassageResult.html")) {
-    resultPageUrl = `../../../templates/tab02/generate/tab02-generateProblem.html?generatedPassage=${encodedContent}`;
-  }
-
-  window.location.href = resultPageUrl;
-}
