@@ -13,9 +13,11 @@ const container = document.querySelector(".selected-items-container");
 
 // 드롭다운 관련 코드
 
+let tab = ""; // 현재 탭을 저장할 변수
 let passageTypeMajor = ""; // 지문 유형(대)을 저장할 변수
 let passageTypeMinor = ""; // 지문 유형(소)을 저장할 변수
 let selectedPassages = []; // 선택된 항목을 저장할 배열
+let passageFlowInput = ""; // 지문 흐름을 저장할 변수
 
 // 첫 번째 드롭다운 메뉴를 클릭하면 활성화/비활성화
 document.addEventListener("click", function (event) {
@@ -181,6 +183,8 @@ function sortSelectedItems() {
 updateDropdown();
 
 passageCreateButton.addEventListener("click", () => {
+  passageFlowInput = document.querySelector(".passage-flow-input").value.trim();
+
   if (
     passageTypeMajor === "" ||
     passageTypeMinor === "" ||
@@ -193,13 +197,36 @@ passageCreateButton.addEventListener("click", () => {
     let resultPageUrl = "";
 
     if (currentUrl.includes("tab01-generatePassage.html")) {
+      // 현재 탭이 문학인 경우
+      tab = "문학";
       resultPageUrl = "tab01-generatePassageResult.html";
     } else if (currentUrl.includes("tab02-generatePassage.html")) {
+      // 현재 탭이 비문학인 경우
+      tab = "비문학";
       resultPageUrl = "tab02-generatePassageResult.html";
     }
 
-    // 문제 생성 api 로직 추가해야함
-    window.location.href = resultPageUrl;
+    // 지문 생성 API 호출
+    generatePassage(
+      tab,
+      passageTypeMajor,
+      passageTypeMinor,
+      selectedPassages,
+      passageFlowInput
+    )
+      .then((response) => {
+        // 세션 스토리지에 지문 생성 결과 저장
+        sessionStorage.setItem("tab", response.tab);
+        sessionStorage.setItem("passageTypeMajor", response.passageTypeMajor);
+        sessionStorage.setItem("passageTypeMinor", response.passageTypeMinor);
+        sessionStorage.setItem("selectedPassages", response.selectedPassages);
+        sessionStorage.setItem("passageFlowInput", response.passageFlowInput);
+
+        window.location.href = resultPageUrl;
+      })
+      .catch((e) => {
+        console.error(e);
+      });
   }
 });
 
@@ -219,3 +246,47 @@ function hidePassageCreateModal() {
 modalPassageCreateCloseButton.addEventListener("click", () => {
   hidePassageCreateModal();
 });
+
+// 지문 생성 API 호출
+async function generatePassage(
+  tab,
+  passageTypeMajor,
+  passageTypeMinor,
+  selectedPassages,
+  passageFlowInput
+) {
+  // const url = "/create/passage"; // 지문 생성 API 주소
+
+  const dummyResponseData = {
+    tab: tab,
+    passageTypeMajor: passageTypeMajor,
+    passageTypeMinor: passageTypeMinor,
+    selectedPassages: selectedPassages,
+    passageFlowInput: passageFlowInput,
+    generatedPassage:
+      "이에 해당하는 법조문을 '단속 법규'라고 한다.\n공인 중개사가 자신이 소유한 부동산을 고객에게 직접 파는 것을금지하는 규정은 단속 법규에 해당한다.\n따라서 ㉠이 규정을 위반하여 공인 중개사와 고객이 체결한 매매계약의 경우 공인 중개사에게\n벌금은 부과되지만 계약 자체는 유효이다.\n\n이에 해당하는 법조문을 '단속 법규'라고 한다.\n공인 중개사가 자신이 소유한 부동산을 고객에게 직접 파는 것을금지하는 규정은 단속 법규에 해당한다.\n따라서 ㉠이 규정을 위반하여 공인 중개사와 고객이 체결한 매매계약의 경우 공인 중개사에게\n벌금은 부과되지만 계약 자체는 유효이다.\n\n이에 해당하는 법조문을 '단속 법규'라고 한다.\n공인 중개사가 자신이 소유한 부동산을 고객에게 직접 파는 것을금지하는 규정은 단속 법규에 해당한다.\n따라서 ㉠이 규정을 위반하여 공인 중개사와 고객이 체결한 매매계약의 경우 공인 중개사에게\n벌금은 부과되지만 계약 자체는 유효이다.\n\n이에 해당하는 법조문을 '단속 법규'라고 한다.\n공인 중개사가 자신이 소유한 부동산을 고객에게 직접 파는 것을금지하는 규정은 단속 법규에 해당한다.\n따라서 ㉠이 규정을 위반하여 공인 중개사와 고객이 체결한 매매계약의 경우 공인 중개사에게\n벌금은 부과되지만 계약 자체는 유효이다.\n",
+  };
+
+  try {
+    // const response = await fetch(url, {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({
+    //     tab,
+    //     passageTypeMajor,
+    //     passageTypeMinor,
+    //     selectedPassages,
+    //     passageFlowInput,
+    //   }),
+    // });
+    // const data = await response.json();
+
+    const data = dummyResponseData;
+    console.log("지문 생성 결과", data);
+    return data;
+  } catch (e) {
+    console.error(e);
+  }
+}

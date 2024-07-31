@@ -203,6 +203,7 @@ function updatePassageInput() {
   console.log("passageInput: ", passageInput);
 }
 
+// 문제 생성 API 호출
 async function generateProblem(tab, problemType, passageInput) {
   // const url = "/"; // 문제 생성 API 주소
 
