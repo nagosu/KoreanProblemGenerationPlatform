@@ -12,6 +12,10 @@ const modalTypeEditContent = document.querySelector(".modal-type-edit-content");
 const modalTypeAddOverlay = document.querySelector(".modal-type-add-overlay");
 const modalTypeAddContent = document.querySelector(".modal-type-add-content");
 
+let tab = ""; // 탭을 저장할 변수
+let previousProblemType = ""; // 이전 문제 유형을 저장할 변수
+let updateProblemType = ""; // 수정할 문제 유형을 저장할 변수
+
 // 삭제 확인 모달창 열기
 function openDeleteConfirmModal() {
   modalDeleteConfirmOverlay.classList.remove("fade-out"); //  fade-out 클래스 제거
@@ -46,7 +50,12 @@ function showToastDeleteDone() {
 }
 
 // 타입 수정 모달창 열기
-function openTypeEditModal() {
+function openTypeEditModal(event) {
+  const typeProblemTitle = event.currentTarget
+    .closest(".type-problem-item")
+    .querySelector(".type-problem-title").textContent;
+  previousProblemType = typeProblemTitle; // previousProblemType에 저장
+
   modalTypeEditOverlay.classList.remove("fade-out"); //  fade-out 클래스 제거
   modalTypeEditOverlay.style.display = "block";
   modalTypeEditContent.style.display = "flex";
@@ -91,4 +100,88 @@ function moveToTypeProblemSelect() {
   }
 
   window.location.href = resultPageUrl;
+}
+
+// 문제 유형 추가 API
+async function addProblemType() {
+  // const url = "/"; // 문제 유형 추가 API 주소
+
+  let createProblemType = document.querySelector(
+    ".modal-type-add-content-input"
+  ).value;
+
+  const currentUrl = window.location.href;
+
+  if (currentUrl.includes("tab01-typeProblem.html")) {
+    // 현재 탭이 문학인 경우
+    tab = "문학";
+  } else if (currentUrl.includes("tab02-typeProblem.html")) {
+    // 현재 탭이 비문학인 경우
+    tab = "비문학";
+  }
+
+  try {
+    // const response = await fetch(url, {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({
+    //     tab: tab,
+    //     createProblemType: createProblemType,
+    //   }),
+    // });
+    // const data = await response.json();
+
+    console.log("문제 유형 추가 성공", {
+      tab: tab,
+      createProblemType: createProblemType,
+    });
+
+    closeTypeAddModal(); // 모달창 닫기
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+// 문제 유형 수정 API
+async function editProblemType() {
+  const url = "/"; // 문제 유형 수정 API 주소
+
+  const currentUrl = window.location.href;
+
+  updateProblemType = document.querySelector(
+    ".modal-type-edit-content-input"
+  ).value;
+
+  if (currentUrl.includes("tab01-typeProblem.html")) {
+    // 현재 탭이 문학인 경우
+    tab = "문학";
+  } else if (currentUrl.includes("tab02-typeProblem.html")) {
+    // 현재 탭이 비문학인 경우
+    tab = "비문학";
+  }
+
+  try {
+    // const response = await fetch(url, {
+    //   method: "PATCH",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({
+    //     tab: tab,
+    //     updateProblemType: updateProblemType,
+    //   }),
+    // });
+    // const data = await response.json();
+
+    console.log("문제 유형 수정 성공", {
+      tab: tab,
+      previousProblemType: previousProblemType,
+      updateProblemType: updateProblemType,
+    });
+    closeTypeEditModal(); // 모달창 닫기
+  } catch (e) {
+    console.error(e);
+  }
 }
