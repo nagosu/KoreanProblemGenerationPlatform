@@ -32,6 +32,7 @@ const toastUploadDone = document.querySelector(".toast-upload-done");
 
 // 드롭다운 관련 코드
 
+let tab = ""; // 탭을 저장할 변수
 let passageTypeMajor = ""; // 지문 유형(대)을 저장할 변수
 let passageTypeMinor = ""; // 지문 유형(소)을 저장할 변수
 let passageName = ""; // 지문 이름을 저장할 변수
@@ -265,7 +266,7 @@ modalPassageUploadCloseButton.addEventListener("click", () => {
 });
 
 // 지문 업로드 버튼 클릭 시
-function uploadPassage() {
+function uploadConfirm() {
   if (
     passageTypeMajor === "" ||
     passageTypeMinor === "" ||
@@ -275,5 +276,50 @@ function uploadPassage() {
     showPassageUploadModal();
   } else {
     openUploadConfirmModal();
+  }
+}
+
+async function uploadPassage() {
+  // const url = "/upload/passage"; // 지문 업로드 API 주소
+
+  const currentUrl = window.location.href;
+
+  if (currentUrl.includes("tab01-uploadPassage.html")) {
+    // 현재 탭이 문학인 경우
+    tab = "문학";
+  } else if (currentUrl.includes("tab02-uploadPassage.html")) {
+    // 현재 탭이 비문학인 경우
+    tab = "비문학";
+  }
+
+  try {
+    // const response = await fetch(url, {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({
+    //     tab,
+    //     passageTypeMajor,
+    //     passageTypeMinor,
+    //     passageName,
+    //     passageInput,
+    //     passageFlowInput,
+    //   }),
+    // });
+    // const data = await response.json();
+
+    console.log("지문 업로드 완료", {
+      tab,
+      passageTypeMajor,
+      passageTypeMinor,
+      passageName,
+      passageInput,
+      passageFlowInput,
+    });
+
+    showToastUploadDone(); // 업로드 완료 토스트 메시지 보여주기
+  } catch (e) {
+    console.error(e);
   }
 }
