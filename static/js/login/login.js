@@ -36,6 +36,13 @@ loginButton.addEventListener("click", () => {
   }
 });
 
+// 비밀번호 입력창에서 엔터 키 입력 시 로그인 처리
+passwordInput.addEventListener("keypress", (event) => {
+  if (event.key === "Enter") {
+    loginButton.click(); // 로그인 버튼 클릭 이벤트를 트리거
+  }
+});
+
 // 닫기 버튼 클릭 시 모달 닫기
 closeButton.addEventListener("click", () => {
   closeModal();
