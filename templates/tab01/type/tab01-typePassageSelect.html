@@ -201,7 +201,7 @@
               <input type="checkbox" id="checkbox1" name="checkbox1" />
               <span
                 class="type-select-item-title"
-                onclick="moveToTypePassageDetail()"
+                onclick="moveToTypePassageDetail(event)"
                 >지문이름 1</span
               >
             </div>
@@ -209,7 +209,7 @@
               <input type="checkbox" id="checkbox1" name="checkbox1" />
               <span
                 class="type-select-item-title"
-                onclick="moveToTypePassageDetail()"
+                onclick="moveToTypePassageDetail(event)"
                 >지문이름 2</span
               >
             </div>
@@ -217,7 +217,7 @@
               <input type="checkbox" id="checkbox1" name="checkbox1" />
               <span
                 class="type-select-item-title"
-                onclick="moveToTypePassageDetail()"
+                onclick="moveToTypePassageDetail(event)"
                 >지문이름 3</span
               >
             </div>
@@ -225,7 +225,7 @@
               <input type="checkbox" id="checkbox1" name="checkbox1" />
               <span
                 class="type-select-item-title"
-                onclick="moveToTypePassageDetail()"
+                onclick="moveToTypePassageDetail(event)"
                 >지문이름 4</span
               >
             </div>
@@ -233,7 +233,7 @@
               <input type="checkbox" id="checkbox1" name="checkbox1" />
               <span
                 class="type-select-item-title"
-                onclick="moveToTypePassageDetail()"
+                onclick="moveToTypePassageDetail(event)"
                 >지문이름 5</span
               >
             </div>
@@ -241,7 +241,7 @@
               <input type="checkbox" id="checkbox1" name="checkbox1" />
               <span
                 class="type-select-item-title"
-                onclick="moveToTypePassageDetail()"
+                onclick="moveToTypePassageDetail(event)"
                 >지문이름 6</span
               >
             </div>
@@ -249,7 +249,7 @@
               <input type="checkbox" id="checkbox1" name="checkbox1" />
               <span
                 class="type-select-item-title"
-                onclick="moveToTypePassageDetail()"
+                onclick="moveToTypePassageDetail(event)"
                 >지문이름 7</span
               >
             </div>
@@ -257,7 +257,7 @@
               <input type="checkbox" id="checkbox1" name="checkbox1" />
               <span
                 class="type-select-item-title"
-                onclick="moveToTypePassageDetail()"
+                onclick="moveToTypePassageDetail(event)"
                 >지문이름 8</span
               >
             </div>
@@ -265,7 +265,7 @@
               <input type="checkbox" id="checkbox1" name="checkbox1" />
               <span
                 class="type-select-item-title"
-                onclick="moveToTypePassageDetail()"
+                onclick="moveToTypePassageDetail(event)"
                 >지문이름 9</span
               >
             </div>
@@ -273,7 +273,7 @@
               <input type="checkbox" id="checkbox1" name="checkbox1" />
               <span
                 class="type-select-item-title"
-                onclick="moveToTypePassageDetail()"
+                onclick="moveToTypePassageDetail(event)"
                 >지문이름 10</span
               >
             </div>
@@ -347,7 +347,7 @@
           <button
             type="button"
             class="modal-upload-confirm-button"
-            onclick="showToastDeleteDone()"
+            onclick="deletePassage()"
           >
             확인
           </button>
@@ -364,5 +364,6 @@
     <!-- 스크립트 -->
     <script src="../../../static/js/common.js"></script>
     <script src="../../../static/js/type/typePassageSelect.js"></script>
+    <script src="../../../static/js/dummyData/dummyPassage.js"></script>
   </body>
 </html>

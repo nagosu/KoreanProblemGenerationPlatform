@@ -206,7 +206,7 @@
                   <div class="dot"></div>
                   <span
                     class="type-passage-major-title"
-                    onclick="moveToTypePassageMinor()"
+                    onclick="moveToTypePassageMinor(event)"
                     >평가원</span
                   >
                 </div>
@@ -222,7 +222,7 @@
                   </div>
                   <div
                     class="icon-container edit-container"
-                    onclick="openTypeEditModal()"
+                    onclick="openTypeEditModal(event)"
                   >
                     <img
                       src="../../../static/images/icon/svg/Edit_fill.svg"
@@ -238,7 +238,7 @@
                   <div class="dot"></div>
                   <span
                     class="type-passage-major-title"
-                    onclick="moveToTypePassageMinor()"
+                    onclick="moveToTypePassageMinor(event)"
                     >교육청</span
                   >
                 </div>
@@ -254,7 +254,7 @@
                   </div>
                   <div
                     class="icon-container edit-container"
-                    onclick="openTypeEditModal()"
+                    onclick="openTypeEditModal(event)"
                   >
                     <img
                       src="../../../static/images/icon/svg/Edit_fill.svg"
@@ -270,7 +270,7 @@
                   <div class="dot"></div>
                   <span
                     class="type-passage-major-title"
-                    onclick="moveToTypePassageMinor()"
+                    onclick="moveToTypePassageMinor(event)"
                     >사관학교</span
                   >
                 </div>
@@ -286,7 +286,7 @@
                   </div>
                   <div
                     class="icon-container edit-container"
-                    onclick="openTypeEditModal()"
+                    onclick="openTypeEditModal(event)"
                   >
                     <img
                       src="../../../static/images/icon/svg/Edit_fill.svg"
@@ -302,7 +302,7 @@
                   <div class="dot"></div>
                   <span
                     class="type-passage-major-title"
-                    onclick="moveToTypePassageMinor()"
+                    onclick="moveToTypePassageMinor(event)"
                     >유형 4</span
                   >
                 </div>
@@ -318,7 +318,7 @@
                   </div>
                   <div
                     class="icon-container edit-container"
-                    onclick="openTypeEditModal()"
+                    onclick="openTypeEditModal(event)"
                   >
                     <img
                       src="../../../static/images/icon/svg/Edit_fill.svg"
@@ -334,7 +334,7 @@
                   <div class="dot"></div>
                   <span
                     class="type-passage-major-title"
-                    onclick="moveToTypePassageMinor()"
+                    onclick="moveToTypePassageMinor(event)"
                     >유형 5</span
                   >
                 </div>
@@ -350,7 +350,7 @@
                   </div>
                   <div
                     class="icon-container edit-container"
-                    onclick="openTypeEditModal()"
+                    onclick="openTypeEditModal(event)"
                   >
                     <img
                       src="../../../static/images/icon/svg/Edit_fill.svg"
@@ -366,7 +366,7 @@
                   <div class="dot"></div>
                   <span
                     class="type-passage-major-title"
-                    onclick="moveToTypePassageMinor()"
+                    onclick="moveToTypePassageMinor(event)"
                     >유형 6</span
                   >
                 </div>
@@ -382,7 +382,7 @@
                   </div>
                   <div
                     class="icon-container edit-container"
-                    onclick="openTypeEditModal()"
+                    onclick="openTypeEditModal(event)"
                   >
                     <img
                       src="../../../static/images/icon/svg/Edit_fill.svg"
@@ -398,7 +398,7 @@
                   <div class="dot"></div>
                   <span
                     class="type-passage-major-title"
-                    onclick="moveToTypePassageMinor()"
+                    onclick="moveToTypePassageMinor(event)"
                     >유형 7</span
                   >
                 </div>
@@ -414,7 +414,7 @@
                   </div>
                   <div
                     class="icon-container edit-container"
-                    onclick="openTypeEditModal()"
+                    onclick="openTypeEditModal(event)"
                   >
                     <img
                       src="../../../static/images/icon/svg/Edit_fill.svg"
@@ -430,7 +430,7 @@
                   <div class="dot"></div>
                   <span
                     class="type-passage-major-title"
-                    onclick="moveToTypePassageMinor()"
+                    onclick="moveToTypePassageMinor(event)"
                     >유형 8</span
                   >
                 </div>
@@ -446,7 +446,7 @@
                   </div>
                   <div
                     class="icon-container edit-container"
-                    onclick="openTypeEditModal()"
+                    onclick="openTypeEditModal(event)"
                   >
                     <img
                       src="../../../static/images/icon/svg/Edit_fill.svg"
@@ -462,7 +462,7 @@
                   <div class="dot"></div>
                   <span
                     class="type-passage-major-title"
-                    onclick="moveToTypePassageMinor()"
+                    onclick="moveToTypePassageMinor(event)"
                     >유형 9</span
                   >
                 </div>
@@ -478,7 +478,7 @@
                   </div>
                   <div
                     class="icon-container edit-container"
-                    onclick="openTypeEditModal()"
+                    onclick="openTypeEditModal(event)"
                   >
                     <img
                       src="../../../static/images/icon/svg/Edit_fill.svg"
@@ -494,7 +494,7 @@
                   <div class="dot"></div>
                   <span
                     class="type-passage-major-title"
-                    onclick="moveToTypePassageMinor()"
+                    onclick="moveToTypePassageMinor(event)"
                     >유형 10</span
                   >
                 </div>
@@ -510,7 +510,7 @@
                   </div>
                   <div
                     class="icon-container edit-container"
-                    onclick="openTypeEditModal()"
+                    onclick="openTypeEditModal(event)"
                   >
                     <img
                       src="../../../static/images/icon/svg/Edit_fill.svg"
@@ -582,7 +582,7 @@
           <button
             type="button"
             class="modal-upload-confirm-button"
-            onclick="showToastDeleteDone()"
+            onclick="removePassageTypeMajor()"
           >
             확인
           </button>
@@ -626,7 +626,7 @@
           <button
             type="button"
             class="modal-type-add-save-button"
-            onclick="closeTypeAddModal()"
+            onclick="addPassageTypeMajor()"
           >
             저장
           </button>
@@ -665,7 +665,7 @@
           <button
             type="button"
             class="modal-type-edit-save-button"
-            onclick="closeTypeEditModal()"
+            onclick="editPassageTypeMajor()"
           >
             저장
           </button>
@@ -677,5 +677,6 @@
     <!-- 스크립트 -->
     <script src="../../../static/js/common.js"></script>
     <script src="../../../static/js/type/typePassageMajor.js"></script>
+    <script src="../../../static/js/dummyData/dummyPassageMajor.js"></script>
   </body>
 </html>

@@ -203,14 +203,14 @@
                   <div class="dot"></div>
                   <span
                     class="type-problem-title"
-                    onclick="moveToTypeProblemSelect()"
+                    onclick="moveToTypeProblemSelect(event)"
                     >지문의 전개방식</span
                   >
                 </div>
                 <div class="type-problem-button-container">
                   <div
                     class="icon-container delete-container"
-                    onclick="openDeleteConfirmModal()"
+                    onclick="openDeleteConfirmModal(event)"
                   >
                     <img
                       src="../../../static/images/icon/svg/Trash.svg"
@@ -235,14 +235,14 @@
                   <div class="dot"></div>
                   <span
                     class="type-problem-title"
-                    onclick="moveToTypeProblemSelect()"
+                    onclick="moveToTypeProblemSelect(event)"
                     >지문 내부의 사실 일치 확인</span
                   >
                 </div>
                 <div class="type-problem-button-container">
                   <div
                     class="icon-container delete-container"
-                    onclick="openDeleteConfirmModal()"
+                    onclick="openDeleteConfirmModal(event)"
                   >
                     <img
                       src="../../../static/images/icon/svg/Trash.svg"
@@ -267,14 +267,14 @@
                   <div class="dot"></div>
                   <span
                     class="type-problem-title"
-                    onclick="moveToTypeProblemSelect()"
+                    onclick="moveToTypeProblemSelect(event)"
                     >밑줄친 대상의 이해</span
                   >
                 </div>
                 <div class="type-problem-button-container">
                   <div
                     class="icon-container delete-container"
-                    onclick="openDeleteConfirmModal()"
+                    onclick="openDeleteConfirmModal(event)"
                   >
                     <img
                       src="../../../static/images/icon/svg/Trash.svg"
@@ -299,14 +299,14 @@
                   <div class="dot"></div>
                   <span
                     class="type-problem-title"
-                    onclick="moveToTypeProblemSelect()"
+                    onclick="moveToTypeProblemSelect(event)"
                     >외부 내용과 비교하여 사실 일치 확인</span
                   >
                 </div>
                 <div class="type-problem-button-container">
                   <div
                     class="icon-container delete-container"
-                    onclick="openDeleteConfirmModal()"
+                    onclick="openDeleteConfirmModal(event)"
                   >
                     <img
                       src="../../../static/images/icon/svg/Trash.svg"
@@ -331,14 +331,14 @@
                   <div class="dot"></div>
                   <span
                     class="type-problem-title"
-                    onclick="moveToTypeProblemSelect()"
+                    onclick="moveToTypeProblemSelect(event)"
                     >지문의 외부 대상과 대조하여 정오 판별</span
                   >
                 </div>
                 <div class="type-problem-button-container">
                   <div
                     class="icon-container delete-container"
-                    onclick="openDeleteConfirmModal()"
+                    onclick="openDeleteConfirmModal(event)"
                   >
                     <img
                       src="../../../static/images/icon/svg/Trash.svg"
@@ -363,14 +363,14 @@
                   <div class="dot"></div>
                   <span
                     class="type-problem-title"
-                    onclick="moveToTypeProblemSelect()"
+                    onclick="moveToTypeProblemSelect(event)"
                     >단어 바꿔쓰기</span
                   >
                 </div>
                 <div class="type-problem-button-container">
                   <div
                     class="icon-container delete-container"
-                    onclick="openDeleteConfirmModal()"
+                    onclick="openDeleteConfirmModal(event)"
                   >
                     <img
                       src="../../../static/images/icon/svg/Trash.svg"
@@ -395,14 +395,14 @@
                   <div class="dot"></div>
                   <span
                     class="type-problem-title"
-                    onclick="moveToTypeProblemSelect()"
+                    onclick="moveToTypeProblemSelect(event)"
                     >묶음에 대한 판단</span
                   >
                 </div>
                 <div class="type-problem-button-container">
                   <div
                     class="icon-container delete-container"
-                    onclick="openDeleteConfirmModal()"
+                    onclick="openDeleteConfirmModal(event)"
                   >
                     <img
                       src="../../../static/images/icon/svg/Trash.svg"
@@ -427,14 +427,14 @@
                   <div class="dot"></div>
                   <span
                     class="type-problem-title"
-                    onclick="moveToTypeProblemSelect()"
+                    onclick="moveToTypeProblemSelect(event)"
                     >밑줄친 대상 사이의 비교</span
                   >
                 </div>
                 <div class="type-problem-button-container">
                   <div
                     class="icon-container delete-container"
-                    onclick="openDeleteConfirmModal()"
+                    onclick="openDeleteConfirmModal(event)"
                   >
                     <img
                       src="../../../static/images/icon/svg/Trash.svg"
@@ -459,14 +459,14 @@
                   <div class="dot"></div>
                   <span
                     class="type-problem-title"
-                    onclick="moveToTypeProblemSelect()"
+                    onclick="moveToTypeProblemSelect(event)"
                     >지문에 근거한 새로운 사례와 대조하여 정오 판별</span
                   >
                 </div>
                 <div class="type-problem-button-container">
                   <div
                     class="icon-container delete-container"
-                    onclick="openDeleteConfirmModal()"
+                    onclick="openDeleteConfirmModal(event)"
                   >
                     <img
                       src="../../../static/images/icon/svg/Trash.svg"
@@ -491,14 +491,14 @@
                   <div class="dot"></div>
                   <span
                     class="type-problem-title"
-                    onclick="moveToTypeProblemSelect()"
+                    onclick="moveToTypeProblemSelect(event)"
                     >의미가 가까운 단어 추론</span
                   >
                 </div>
                 <div class="type-problem-button-container">
                   <div
                     class="icon-container delete-container"
-                    onclick="openDeleteConfirmModal()"
+                    onclick="openDeleteConfirmModal(event)"
                   >
                     <img
                       src="../../../static/images/icon/svg/Trash.svg"
@@ -579,7 +579,7 @@
           <button
             type="button"
             class="modal-upload-confirm-button"
-            onclick="showToastDeleteDone()"
+            onclick="removeProblemType()"
           >
             확인
           </button>
@@ -674,5 +674,6 @@
     <!-- 스크립트 -->
     <script src="../../../static/js/common.js"></script>
     <script src="../../../static/js/type/typeProblem.js"></script>
+    <script src="../../../static/js/dummyData/dummyProblemTypes.js"></script>
   </body>
 </html>

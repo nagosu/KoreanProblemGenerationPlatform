@@ -253,29 +253,13 @@
               contenteditable="false"
               data-placeholder="여기에 텍스트를 입력하세요."
             >
-              <h2 class="editable-title"><지문></h2>
-              이에 해당하는 법조문을 '단속 법규'라고 한다. 공인 중개사가 자신이
-              소유한 부동산을 고객에게 직접 파는 것을 금지하는 규정은 단속
-              법규에 해당한다.<br />
-              따라서 이 규정을 위반하여 공인 중개사와 고객이 체결한
-              <span class="text-underline">밑줄1. 매매 계약</span>의 경우 공인
-              중개사에게<br />
-              벌금은 부과되지만 계약 자체는 유효이다.<br /><br />
+              <h2 class="editable-title" contenteditable="false"><지문></h2>
 
-              <h2 class="editable-title"><문제></h2>
-              3. 윗글을 참고할 때, ㉠의 이유로 적절하지 않은 것은?<br />
-              ① 조선에서 서양 학문을 정책적으로 배척했기 때문이다.<br />
-              ② 전래된 서양 의학이 내용 면에서 불충분했기 때문이다.<br />
-              ③ 당대 의원들이 서양 의학의 한계를 지적했기 때문이다.<br />
-              ④ 서양 해부학이 조선의 윤리 의식에 위배되었기 때문이다.<br />
-              ⑤ 서양 의학이 천문 지식에 비해 충격적이기 않았기 때문이다.<br /><br />
+              <h2 class="editable-title" contenteditable="false"><문제></h2>
 
-              <h2 class="editable-title"><정/오답 사유></h2>
-              1번은 -- 이유로 오답이다.<br />
-              2번은 -- 이유로 오답이다.<br />
-              3번은 -- 이유로 정답이다.<br />
-              4번은 -- 이유로 오답이다.<br />
-              5번은 -- 이유로 오답이다.<br />
+              <h2 class="editable-title" contenteditable="false">
+                <정/오답 사유>
+              </h2>
             </div>
           </div>
           <!-- //문제 상세 -->
@@ -324,7 +308,7 @@
           <button
             type="button"
             class="modal-save-confirm-button"
-            onclick="showToastSaveDone()"
+            onclick="saveProblemDetail()"
           >
             예
           </button>
@@ -341,5 +325,6 @@
     <!-- 스크립트 -->
     <script src="../../../static/js/common.js"></script>
     <script src="../../../static/js/type/typeProblemDetail.js"></script>
+    <script src="../../../static/js/dummyData/dummyProblemDetail.js"></script>
   </body>
 </html>
