@@ -191,9 +191,9 @@ function updatePassageInput() {
   console.log("newAnswerExplanation", newAnswerExplanation);
 }
 
-// 특정 문제 조회 API
+// 특정 문제 상세 조회 API
 async function fetchProblemDetail() {
-  const url = `/example?tab=${tab}&problemType=${problemType}&problem=${problem}`; // 특정 문제 조회 API 주소
+  const url = `/example?tab=${tab}&problemType=${problemType}&problem=${problem}`; // 특정 문제 상세 조회 API 주소
 
   const data = dummyProblemDetail;
 
@@ -205,7 +205,7 @@ async function fetchProblemDetail() {
     //   },
     // });
     // const data = await response.json();
-    console.log("특정 문제 조회 성공", data);
+    console.log("특정 문제 상세 조회 성공", data);
     displayProblemDetail(data);
   } catch (e) {
     console.error(e);
@@ -278,5 +278,5 @@ observer.observe(editableDiv, {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  fetchProblemDetail(); // 특정 문제 조회 API 호출
+  fetchProblemDetail(); // 특정 문제 상세 조회 API 호출
 });

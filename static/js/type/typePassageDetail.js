@@ -189,9 +189,9 @@ function updatePassageInput() {
   console.log("newPassageFlow", newPassageFlow);
 }
 
-// 특정 지문 조회 API
+// 특정 지문 상세 조회 API
 async function fetchPassageDetail() {
-  const url = `/example?tab=${tab}&passageTypeMajor=${passageTypeMajor}&passageTypeMinor=${passageTypeMinor}&passage=${passage}`; // 특정 지문 조회 API 주소
+  const url = `/example?tab=${tab}&passageTypeMajor=${passageTypeMajor}&passageTypeMinor=${passageTypeMinor}&passage=${passage}`; // 특정 지문 상세 조회 API 주소
 
   const data = dummyPassageDetail;
 
@@ -203,7 +203,7 @@ async function fetchPassageDetail() {
     //   },
     // });
     // const data = await response.json();
-    console.log("특정 지문 조회 성공", data);
+    console.log("특정 지문 상세 조회 성공", data);
     displayPassageDetail(data);
   } catch (e) {
     console.error(e);
@@ -257,7 +257,6 @@ function displayPassageDetail(data) {
     <br /><br />
     <h2 class="editable-title" contentEditable="false"><지문의 흐름></h2>
     <span class="new">${newPassageFlow}</span>
-    <br /><br />
   `;
 }
 
@@ -273,5 +272,5 @@ observer.observe(editableDiv, {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  fetchPassageDetail(); // 특정 지문 조회 API 호출
+  fetchPassageDetail(); // 특정 지문 상세 조회 API 호출
 });
